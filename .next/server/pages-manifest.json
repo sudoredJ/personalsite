@@ -1,0 +1,12 @@
+{
+  "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js",
+  "/": "pages/index.js",
+  "/statements-of-interest": "pages/statements-of-interest.js",
+  "/resume": "pages/resume.js",
+  "/brand-statement": "pages/brand-statement.js",
+  "/self-swot": "pages/self-swot.js",
+  "/contact": "pages/contact.js",
+  "/linkedin": "pages/linkedin.js"
+}
