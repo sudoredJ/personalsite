@@ -1,9 +1,7 @@
 import Head from 'next/head';
-import { initializeMobileMenu } from '../components/mobileMenu';
+// import { initializeMobileMenu } from '../components/mobileMenu';
 import { useEffect } from 'react';
 export default function About() {
-    useEffect(() => {
-        initializeMobileMenu();   }, []);
   return (
     <>
       <Head>
