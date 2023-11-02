@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 
-export default function LinkedIn() {
+export default function Resume() {
   const linkStyle = {
     fontSize: '2rem',
     margin: '1rem auto',
@@ -13,7 +13,7 @@ export default function LinkedIn() {
   return (
     <>
       <Head>
-        <title>LinkedIn and Resume</title>
+        <title>My Resume</title>
       </Head>
       <div
         style={{
@@ -25,14 +25,6 @@ export default function LinkedIn() {
           backgroundColor: '#000',
         }}
       >
-        <a
-          href="https://www.linkedin.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={linkStyle}
-        >
-          Visit LinkedIn
-        </a>
         <a
           href="/jared_mantell_resumee.pdf"
           target="_blank"
