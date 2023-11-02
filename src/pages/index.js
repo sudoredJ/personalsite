@@ -49,6 +49,7 @@ export default function Home() {
       <section style={centeredSectionStyle}>
         <a href="/resume" style={linkStyle}>Resume</a>
         <a href="/linkedin" style={linkStyle}>LinkedIn</a>
+        <a href="/contact" style={linkStyle}>Contact</a>
       </section>
       {/* Existing footer and other content */}
     </>
