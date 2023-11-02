@@ -48,11 +48,7 @@ export default function Home() {
       </section>
       <section style={centeredSectionStyle}>
         <a href="/resume" style={linkStyle}>Resume</a>
-        <a href="/self-swot" style={linkStyle}>Self-SWOT</a>
         <a href="/linkedin" style={linkStyle}>LinkedIn</a>
-        <a href="/contact" style={linkStyle}>Contact</a>
-        <a href="/statements-of-interest" style={linkStyle}>Statements of Interest</a>
-        <a href="/brand-statement" style={linkStyle}>Brand Statement</a>
       </section>
       {/* Existing footer and other content */}
     </>
