@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import React, { useState, useRef, useEffect } from 'react';
-import Cursor from '../components/Cursor';
+import Cursor from '../components/cursor';
 import VideoComponent from '../components/VideoComponent';
 
 // Define the Home component
