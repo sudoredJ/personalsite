@@ -42,8 +42,8 @@ const VideoComponent = () => {
   // Styles for the video wrapper to position the text over the video
   const videoWrapperStyle = {
     position: 'relative', // Relative positioning for absolute child
-    width: '500px', // Width of the video
-    height: '500px' // Height of the video
+    width: '300px', // Width of the video
+    height: '300px' // Height of the video
   };
 
   return (
