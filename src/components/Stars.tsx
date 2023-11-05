@@ -80,7 +80,7 @@ const Stars = () => {
             height: "100%",
             width: "100%",
             zIndex: "-1",
-            backgroundColor: "#1a001a"  // Dark purple
+            backgroundColor: "#000000"  
         }}
         camera={{ position: [0, 0, 1] }}
     >

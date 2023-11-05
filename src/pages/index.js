@@ -1,8 +1,8 @@
 import Head from 'next/head';
 import { useEffect } from 'react';
+import Cursor from '../components/Cursor';
 
 export default function Home() {
-
   const linkStyle = {
     fontSize: '2rem',
     margin: '1rem',
@@ -26,6 +26,7 @@ export default function Home() {
 
   return (
     <>
+    <Cursor />
       <Head>
         <title>Jared M.</title>
         <style jsx global>{`
