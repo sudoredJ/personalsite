@@ -62,8 +62,9 @@ const Cursor = () => {
         endX.current = e.pageX;
         endY.current = e.pageY;
     
-        // Using a more targeted approach instead of :hover pseudo-class
-        if (e.target.tagName === "A" || e.target.classList.contains("skill")) {
+        // Check if e.target is an Element before trying to access classList or tagName
+        const target = e.target as Element; // Cast e.target to Element to access classList and tagName
+        if (target && (target.tagName === "A" || target.classList.contains("skill"))) {
             dot.current.style.backgroundColor = "transparent";
             dotOutline.current.style.width = "50px";
             dotOutline.current.style.height = "50px";
@@ -81,7 +82,6 @@ const Cursor = () => {
             dotOutline.current.style.backgroundColor = "transparent";
         }
     };
-
     const animateDotOutline = () => {
         x.current += (endX.current - x.current) / delay;
         y.current += (endY.current - y.current) / delay;
