@@ -58,21 +58,13 @@ const Cursor = () => {
     const mouseMoveEvent = (e: MouseEvent) => {
         cursorVisible.current = true;
         toggleCursorVisibility();
-
-        endX.current = e.clientX;
-        endY.current = e.clientY;
-
-        const q = document.querySelectorAll(":hover");
-        const elType = q[q.length - 1]!.tagName;
-        if (
-            q[7]?.tagName === "A" ||
-            ["LI", "A", "BUTTON", "H1", "svg", "path", "SPAN"].includes(
-                elType
-            ) ||
-            q[q.length - 1]!.classList[0] === "skill"
-        ) {
+    
+        endX.current = e.pageX;
+        endY.current = e.pageY;
+    
+        // Using a more targeted approach instead of :hover pseudo-class
+        if (e.target.tagName === "A" || e.target.classList.contains("skill")) {
             dot.current.style.backgroundColor = "transparent";
-
             dotOutline.current.style.width = "50px";
             dotOutline.current.style.height = "50px";
             dotOutline.current.style.borderColor = "#E8313F";
@@ -83,7 +75,6 @@ const Cursor = () => {
             dot.current.style.backgroundColor = "#F1838B";
             dot.current.style.borderColor = "transparent";
             dot.current.style.borderRadius = "50%";
-
             dotOutline.current.style.width = "40px";
             dotOutline.current.style.height = "40px";
             dotOutline.current.style.borderColor = "transparent";
@@ -105,26 +96,35 @@ const Cursor = () => {
     useEffect(() => {
         if (!dot.current || !dotOutline.current) {
             return;
-          }
-        document.addEventListener("mousedown", mouseOverEvent);
-        document.addEventListener("mouseup", mouseOutEvent);
+        }
+    
+        const links = document.querySelectorAll('a');
+    
+        links.forEach(link => {
+            link.addEventListener('mouseover', mouseOverEvent);
+            link.addEventListener('mouseout', mouseOutEvent);
+        });
+    
         document.addEventListener("mousemove", mouseMoveEvent);
         document.addEventListener("mouseenter", mouseEnterEvent);
         document.addEventListener("mouseleave", mouseExitEvent); 
         animateDotOutline();
-
+    
         return () => {
-            document.removeEventListener("mousedown", mouseOverEvent);
-            document.removeEventListener("mouseup", mouseOutEvent);
+            links.forEach(link => {
+                link.removeEventListener('mouseover', mouseOverEvent);
+                link.removeEventListener('mouseout', mouseOutEvent);
+            });
+    
             document.removeEventListener("mousemove", mouseMoveEvent);
             document.removeEventListener("mouseenter", mouseEnterEvent);
             document.removeEventListener("mouseleave", mouseExitEvent);
-
+    
             cancelAnimationFrame(requestRef.current);
         };
     }, []);
-
     return (
+        
         <div
            id="cursor-container"
            className="fixed inset-0 z-[9999] pointer-events-none"

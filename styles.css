@@ -23,7 +23,7 @@
       margin: auto;
       justify-content: center;
       pointer-events: none;
-      position: relative;
+      position: none;
       top: 50%;
       left: 50%;
       border-radius: 50%;
@@ -33,10 +33,18 @@
   }
 
   .cursor-dot {
-    @apply w-3 h-3 bg-[#F1838B] rounded-full border-none;
-    
+    position: fixed;
+    width: 13px; /* or the size of your cursor dot */
+    height: 13px; /* same as width for a circle */
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #F1838B; /* your color */
   }
   
   .cursor-dot-outline {
-    @apply w-10 h-10 border-2 border-transparent bg-transparent rounded-full;
+    position: fixed;
+    width: 40px; /* or the size of your cursor outline */
+    height: 40px; /* same as width for a circle */
+    border: 2px solid transparent; /* your choice of border */
+    transform: translate(-50%, -50%);
   }
