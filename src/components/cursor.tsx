@@ -1,7 +1,3 @@
-Skip to content
-
-    ifpx2cnjf
-
 import React, { useEffect, useRef } from "react";
 
 
