@@ -1,70 +1,268 @@
-import React, { useEffect, useRef } from 'react';
+Skip to content
+
+    ifpx2cnjf
+
+import React, { useEffect, useRef } from "react";
+
 
 const Cursor = () => {
-  const cursorVisible = useRef(false);
-  const endX = useRef(0);
-  const endY = useRef(0);
-  const dot = useRef(null);
-  const dotOutline = useRef(null);
 
-  const toggleCursorVisibility = () => {
-    if (dot.current && dotOutline.current) {
-      dot.current.style.opacity = cursorVisible.current ? '1' : '0';
-      dotOutline.current.style.opacity = cursorVisible.current ? '1' : '0';
-    }
-  };
+    const delay = 5;
 
-  const mouseEnterEvent = () => {
-    cursorVisible.current = true;
-    toggleCursorVisibility();
-  };
+    const cursorVisible = useRef(true);
 
-  const mouseExitEvent = () => {
-    cursorVisible.current = false;
-    toggleCursorVisibility();
-  };
+    const cursorEnlarged = useRef(false);
 
-  const mouseMoveEvent = (e) => {
-    cursorVisible.current = true;
-    toggleCursorVisibility();
 
-    endX.current = e.pageX;
-    endY.current = e.pageY;
+    const endX = useRef(0);
 
-    const target = e.target;
-    if (target && (target.tagName === 'A' || target.classList.contains('skill'))) {
-      dot.current.style.backgroundColor = 'transparent';
-      dotOutline.current.style.width = '50px';
-      dotOutline.current.style.height = '50px';
-      dotOutline.current.style.borderColor = '#E8313F';
-      dotOutline.current.style.backgroundColor = 'transparent';
-    } else {
-      dot.current.style.width = '13px';
-      dot.current.style.height = '13px';
-      dot.current.style.backgroundColor = '#F1838B';
-      dot.current.style.borderColor = 'transparent';
-      dot.current.style.borderRadius = '50%';
-    }
-  };
+    const endY = useRef(0);
 
-  useEffect(() => {
-    document.addEventListener('mouseenter', mouseEnterEvent);
-    document.addEventListener('mouseleave', mouseExitEvent);
-    document.addEventListener('mousemove', mouseMoveEvent);
+    const x = useRef(0);
 
-    return () => {
-      document.removeEventListener('mouseenter', mouseEnterEvent);
-      document.removeEventListener('mouseleave', mouseExitEvent);
-      document.removeEventListener('mousemove', mouseMoveEvent);
+    const y = useRef(0);
+
+
+    const requestRef = useRef(null as any);
+
+
+    const dot = useRef(null as any);
+
+    const dotOutline = useRef(null as any);
+
+
+    const toggleCursorVisibility = () => {
+
+        if (cursorVisible.current) {
+
+            dot.current.style.opacity = 1;
+
+            dotOutline.current.style.opacity = 1;
+
+        } else {
+
+            dot.current.style.opacity = 0;
+
+            dotOutline.current.style.opacity = 0;
+
+        }
+
     };
-  }, []);
 
-  return (
-    <div>
-      <div ref={dot} style={{ position: 'fixed', pointerEvents: 'none' }} />
-      <div ref={dotOutline} style={{ position: 'fixed', pointerEvents: 'none' }} />
-    </div>
-  );
+
+    const toggleCursorSize = () => {
+
+        if (cursorEnlarged.current) {
+
+            dot.current.style.transform = "translate(-50%, -50%) scale(0.75)";
+
+            dotOutline.current.style.transform = "translate(-50%, -50%) scale(1.25)";
+
+        } else {
+
+            dot.current.style.transform = "translate(-50%, -50%) scale(1)";
+
+            dotOutline.current.style.transform = "translate(-50%, -50%) scale(1)";
+
+        }
+
+    };
+
+
+    const mouseOverEvent = () => {
+
+        cursorEnlarged.current = true;
+
+        toggleCursorSize();
+
+    };
+
+
+    const mouseOutEvent = () => {
+
+        cursorEnlarged.current = false;
+
+        toggleCursorSize();
+
+    };
+
+
+    const mouseEnterEvent = () => {
+
+        cursorVisible.current = true;
+
+        toggleCursorVisibility();
+
+    };
+
+
+    const mouseExitEvent = () => {
+
+        cursorVisible.current = false;
+
+        toggleCursorVisibility();
+
+    };
+
+
+    const mouseMoveEvent = (e: MouseEvent) => {
+
+        cursorVisible.current = true;
+
+        toggleCursorVisibility();
+
+    
+
+        endX.current = e.pageX;
+
+        endY.current = e.pageY;
+
+    
+
+        // Check if e.target is an Element before trying to access classList or tagName
+
+        const target = e.target as Element; // Cast e.target to Element to access classList and tagName
+
+        if (target && (target.tagName === "A" || target.classList.contains("skill"))) {
+
+            dot.current.style.backgroundColor = "transparent";
+
+            dotOutline.current.style.width = "50px";
+
+            dotOutline.current.style.height = "50px";
+
+            dotOutline.current.style.borderColor = "#E8313F";
+
+            dotOutline.current.style.backgroundColor = "transparent";
+
+        } else {
+
+            dot.current.style.width = "13px";
+
+            dot.current.style.height = "13px";
+
+            dot.current.style.backgroundColor = "#F1838B";
+
+            dot.current.style.borderColor = "transparent";
+
+            dot.current.style.borderRadius = "50%";
+
+            dotOutline.current.style.width = "40px";
+
+            dotOutline.current.style.height = "40px";
+
+            dotOutline.current.style.borderColor = "transparent";
+
+            dotOutline.current.style.backgroundColor = "transparent";
+
+        }
+
+    };
+
+    const animateDotOutline = () => {
+
+        x.current += (endX.current - x.current) / delay;
+
+        y.current += (endY.current - y.current) / delay;
+
+    
+
+        dot.current.style.transform = `translate(-50%, -50%) translate(${x.current}px, ${y.current}px)`;
+
+        dotOutline.current.style.transform = `translate(-50%, -50%) translate(${x.current}px, ${y.current}px)`;
+
+    
+
+        requestRef.current = requestAnimationFrame(animateDotOutline);
+
+      };
+
+    
+
+
+    useEffect(() => {
+
+        if (!dot.current || !dotOutline.current) {
+
+            return;
+
+        }
+
+    
+
+        const links = document.querySelectorAll('a');
+
+    
+
+        links.forEach(link => {
+
+            link.addEventListener('mouseover', mouseOverEvent);
+
+            link.addEventListener('mouseout', mouseOutEvent);
+
+        });
+
+    
+
+        document.addEventListener("mousemove", mouseMoveEvent);
+
+        document.addEventListener("mouseenter", mouseEnterEvent);
+
+        document.addEventListener("mouseleave", mouseExitEvent); 
+
+        animateDotOutline();
+
+    
+
+        return () => {
+
+            links.forEach(link => {
+
+                link.removeEventListener('mouseover', mouseOverEvent);
+
+                link.removeEventListener('mouseout', mouseOutEvent);
+
+            });
+
+    
+
+            document.removeEventListener("mousemove", mouseMoveEvent);
+
+            document.removeEventListener("mouseenter", mouseEnterEvent);
+
+            document.removeEventListener("mouseleave", mouseExitEvent);
+
+    
+
+            cancelAnimationFrame(requestRef.current);
+
+        };
+
+    }, []);
+
+    return (
+
+        
+
+        <div
+
+           id="cursor-container"
+
+           className="fixed inset-0 z-[9999] pointer-events-none"
+
+>
+
+            <div ref={dotOutline} className="cursor-dot-outline"></div>
+
+            <div ref={dot} className="cursor-dot"></div>
+
+        </div>
+
+    );
+
 };
 
+
 export default Cursor;
+
+
