@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Cursor from '../components/Cursor';
 
 export default function Contact() {
   const linkStyle = {

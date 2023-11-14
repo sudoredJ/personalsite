@@ -19,32 +19,30 @@
   }
   
   .cursor-dot,
-  .cursor-dot-outline {
-      margin: auto;
-      justify-content: center;
-      pointer-events: none;
-      position: none;
-      top: 50%;
-      left: 50%;
-      border-radius: 50%;
-      z-index: -1;
-      opacity: 0;
-      transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, border 0.3s ease-in-out;
-  }
-
-  .cursor-dot {
-    position: fixed;
-    width: 13px; /* or the size of your cursor dot */
-    height: 13px; /* same as width for a circle */
+.cursor-dot-outline {
+    margin: auto;
+    justify-content: center;
+    pointer-events: none;
+    top: 50%;
+    left: 50%;
     border-radius: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #F1838B; /* your color */
-  }
-  
-  .cursor-dot-outline {
-    position: fixed;
-    width: 40px; /* or the size of your cursor outline */
-    height: 40px; /* same as width for a circle */
-    border: 2px solid transparent; /* your choice of border */
-    transform: translate(-50%, -50%);
-  }
+    z-index: 9999;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, border 0.3s ease-in-out;
+}
+
+.cursor-dot {
+  position: fixed;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #F1838B;
+}
+
+.cursor-dot-outline {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  border: 2px solid transparent;
+  transform: translate(-50%, -50%);
+}

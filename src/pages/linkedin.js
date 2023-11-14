@@ -1,6 +1,19 @@
 import Head from 'next/head';
-// import { initializeMobileMenu } from '../components/mobileMenu';
+import Link from 'next/link';
 import { useEffect } from 'react';
+const containerStyle = {
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+};
+const linkStyle = {
+  fontSize: '2rem',
+  margin: '1rem auto',
+  color: '#FFFFFF',
+  textDecoration: 'underline',
+  textAlign: 'center',
+};
 export default function About() {
   return (
     <>
@@ -22,7 +35,11 @@ export default function About() {
         </div>
       </section>
       {/* Cover Image */}
-      <section className="h-64 lg:h-screen-90 w-full bg-no-repeat bg-center bg-cover" style={{ backgroundImage: 'url(./images/portrait_big.jpg)' }}></section>
+      <section className="h-64 lg:h-screen-90 w-full bg-no-repeat bg-center bg-cover" style={{ backgroundImage: 'url(./images/portrait_big.jpg)' }}>
+  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
+    <a href="https://www.linkedin.com/in/jaredmantell/" target="_blank" rel="noopener noreferrer" style={linkStyle}>LinkedIn</a>
+  </div>
+</section>
       {/* Content */}
       <section className="mt-8 lg:mt-24 pb-16">
         <div className="container mx-auto px-4 grid grid-cols-12 gap-8">
@@ -33,6 +50,9 @@ export default function About() {
       <footer className="pt-24 pb-8 bg-bg">
         <div className="container mx-auto px-4 relative grid grid-cols-12 gap-8">
           {/* ... */}
+          <div style={containerStyle}>
+        <Link href="/" style={linkStyle}>Back to Home</Link>
+      </div>
         </div>
       </footer>
     </>

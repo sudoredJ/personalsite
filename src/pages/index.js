@@ -1,33 +1,62 @@
+import React, { useEffect, useRef } from 'react';
+import Link from 'next/link';
 import Head from 'next/head';
-import React, { useState, useRef, useEffect } from 'react';
-import Cursor from '../components/cursor';
-import VideoComponent from '../components/VideoComponent';
+import Cursor from '../components/Cursor';
 
-// Define the Home component
 export default function Home() {
-  // Styles for your links
-  const linkStyle = {
-    fontSize: '2rem',
-    margin: '1rem',
-    color: '#FFFFFF',
-    textDecoration: 'underline',
-  };
-  const tinyStyle = {
-    fontSize: '2rem',
-    margin: '1rem',
-    color: '#FFFFFF',
-    textAlign: 'center',
-    fontStyle: 'italic',
+  const cursorRef = useRef(null);
+
+  const isTouchDevice = () => {
+    try {
+      document.createEvent("TouchEvent");
+      return true;
+    } catch (e) {
+      return false;
+    }
   };
 
-  // Styles for centered text
+  const move = (e) => {
+    try {
+      const x = !isTouchDevice() ? e.pageX : e.touches[0].pageX;
+      const y = !isTouchDevice() ? e.pageY : e.touches[0].pageY;
+
+      if (cursorRef.current) {
+        cursorRef.current.style.left = x - 50 + "px";
+        cursorRef.current.style.top = y - 50 + "px";
+      }
+    } catch (e) {}
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousemove", move);
+    document.addEventListener("touchmove", move);
+
+    return () => {
+      document.removeEventListener("mousemove", move);
+      document.removeEventListener("touchmove", move);
+    };
+  }, []);
   const centeredTextStyle = {
-    fontSize: '4rem',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    color: '#FFFFFF',
+  };
+
+  const tinyStyle = {
+    fontSize: '10px',
     textAlign: 'center',
     color: '#FFFFFF',
   };
 
-  // Styles for the section where the links are
+  const linkStyle = {
+    color: '#FFFFFF',
+    textDecoration: 'none',
+    fontSize: '20px',
+    textAlign: 'center',
+  };
+
   const centeredSectionStyle = {
     display: 'flex',
     flexDirection: 'column',
@@ -37,7 +66,8 @@ export default function Home() {
   };
 
   return (
-    <>
+    <div>
+      <div ref={cursorRef} id="my-div"></div>
       <Head>
         <title>Jared M.</title>
         <style jsx global>{`
@@ -58,21 +88,23 @@ export default function Home() {
           </nav>
         </div>
       </header>
-      
       <section className="text-center" style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
-        <Cursor />
-        <h1 style={{ ...centeredTextStyle, fontFamily: 'Trebuchet MS' }}>Hi, I'm Jared M.</h1>
+      <s><Cursor /></s>
+      <h1 style={{ ...centeredTextStyle, fontFamily: 'Trebuchet MS' }}>Hi, I'm Jared M.</h1>
         <h2 style={centeredTextStyle}>Thanks for coming to my site</h2>
         <p style={tinyStyle}>it's still under construction ;) </p>
       </section>
       <section style={centeredSectionStyle}>
-        <a href="/resume" style={linkStyle}>Resume</a>
-        <a href="/linkedin" style={linkStyle}>LinkedIn</a>
-        <a href="/contact" style={linkStyle}>Contact</a>
+        <div style={{ cursor: 'pointer', marginBottom: '20px' }}>
+          <Link href="/globevid" style={linkStyle}>My story so far</Link>
+        </div>
+        <div style={{ cursor: 'pointer', marginBottom: '20px' }}>
+          <Link href="/contact" style={linkStyle}>Contact</Link>
+        </div>
+        <div style={{ cursor: 'pointer', marginBottom: '20px' }}>
+          <Link href="/linkedin" style={linkStyle}>LinkedIn</Link>
+        </div>
       </section>
-      
-      <VideoComponent /> {/* This is where the video will be displayed */}
-      
-    </>
+    </div>
   );
 }
