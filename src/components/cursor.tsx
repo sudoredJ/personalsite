@@ -34,7 +34,7 @@ const Cursor = () => {
     };
   }, []);
 
-  return <div ref={cursorRef} id="cursor-container" className="fixed inset-0 z-[9999] pointer-events-none"></div>;
+  return <div ref={cursorRef} style={{position: 'absolute', width: '100px', height: '100px', backgroundColor: 'red'}} />;
 };
 
 export default Cursor;
