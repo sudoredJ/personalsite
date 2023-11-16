@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
-import Cursor from '../components/cursor';
+import Cursor from '../components/Cursor';
 
 export default function Home() {
   const cursorRef = useRef(null);
