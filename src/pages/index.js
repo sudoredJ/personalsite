@@ -1,11 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
-import Cursor from '../components/Cursor';
 
 export default function Home() {
-  const cursorRef = useRef(null);
-
   const isTouchDevice = () => {
     try {
       document.createEvent("TouchEvent");
@@ -67,7 +64,6 @@ export default function Home() {
 
   return (
     <div>
-      <div ref={cursorRef} id="my-div"></div>
       <Head>
         <title>Jared M.</title>
         <style jsx global>{`
@@ -89,7 +85,6 @@ export default function Home() {
         </div>
       </header>
       <section className="text-center" style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
-      <s><Cursor /></s>
       <h1 style={{ ...centeredTextStyle, fontFamily: 'Trebuchet MS' }}>Hi, I'm Jared M.</h1>
         <h2 style={centeredTextStyle}>Thanks for coming to my site</h2>
         <p style={tinyStyle}>it's still under construction ;) </p>
