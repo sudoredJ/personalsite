@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import VideoComponent from '../components/VideoComponent';
-import Cursor from '../components/Cursor';
 
 export default function Resume() {
   const linkStyle = {
