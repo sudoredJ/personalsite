@@ -109,7 +109,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "src/components/Cursor.js"  ],
+  ],
   "exclude": [
     "node_modules"
   ]
