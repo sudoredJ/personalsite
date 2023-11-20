@@ -41,13 +41,6 @@ export default function Home() {
     alignItems: 'center',
     color: '#FFFFFF',
   };
-  const gradingBoxContainerStyle = {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: '100vh',
-  };
-
   const gradingBoxStyle = {
     backgroundColor: 'grey',
     color: 'yellow',
