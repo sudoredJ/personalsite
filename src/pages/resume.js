@@ -33,7 +33,15 @@ export default function LinkedIn() {
         >
           Visit LinkedIn
         </a>
-        <a href="/" style={linkStyle}>Back to Home</a>
+        <a
+          href="/jared_mantell_resumee.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={linkStyle}
+        >
+          View Resume
+        </a>
+        <Link href="/" style={linkStyle}>Back to Home</Link>
       </div>
     </>
   );
