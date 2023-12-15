@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import CustomCursor from "../components/CustomCursor";
 
 export default function Contact() {
   const linkStyle = {
@@ -26,7 +27,8 @@ export default function Contact() {
   };
 
   return (
-    <>
+    <><div className="page-wrapper">
+    <CustomCursor />
       <Head>
         <title>Contact</title>
       </Head>
@@ -37,7 +39,7 @@ export default function Contact() {
           Feel free to reach out to me via email:
         </p>
         <a href="mailto:j.mantell@wustl.edu" style={emailStyle}>j.mantell@wustl.edu</a>
-      </div>
+        </div></div>
     </>
   );
 }
