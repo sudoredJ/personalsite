@@ -101,7 +101,7 @@ export default function Home() {
         <div className="hero-wrapper">
         <Hero title="Hi, I'm Jared M." index>
   <p className="hero-description small width">
-    Thanks for coming to my site.
+    Thanks for coming to my little space on the internet.
     <br />
     <br />
     <em>It's still under construction ;)</em>
