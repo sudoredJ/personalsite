@@ -1,11 +1,9 @@
-import React, { useState, ReactNode } from "react";
-import CustomCursorContext, { CursorLookType } from "../context/CustomCursorContext";
+import React, { useState } from "react";
+import CustomCursorContext, {
+  CursorLookType,
+} from "../context/CustomCursorContext";
 
-interface CustomCursorManagerProps {
-  children: ReactNode; // Explicitly defining the type for 'children'
-}
-
-const CustomCursorManager = ({ children }: CustomCursorManagerProps) => {
+const CustomCursorManager = ({ children }:{ children: React.ReactNode}) => {
   const [type, setType] = useState<CursorLookType>("default");
 
   return (
