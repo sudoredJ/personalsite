@@ -1,3 +1,4 @@
+import '../components/CustomCursor/style.scss';
 function MyApp({ Component, pageProps }) {
   return (
     <>
