@@ -1,45 +1,40 @@
 import Head from 'next/head';
-import CustomCursor from "../components/CustomCursor";
+import Link from 'next/link';
 
-export default function Contact() {
+export default function LinkedIn() {
   const linkStyle = {
-    fontSize: '1.5rem',
-    marginBottom: '20px',
-    color: '#FFFFFF',
-    textDecoration: 'none',
-  };
-
-  const containerStyle = {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: '100vh',
-    backgroundColor: '#000',
-  };
-
-  const emailStyle = {
     fontSize: '2rem',
+    margin: '1rem auto',
     color: '#FFFFFF',
     textDecoration: 'underline',
     textAlign: 'center',
-    margin: '20px 0',
   };
 
   return (
-    <><div className="page-wrapper">
-    <CustomCursor />
+    <>
       <Head>
-        <title>Contact</title>
+        <title>LinkedIn</title>
       </Head>
-      <div style={containerStyle}>
-        <a href="/" style={linkStyle}>Go back to home</a>
-        <h1 style={{ color: '#FFFFFF' }}>Contact</h1>
-        <p style={{ color: '#FFFFFF' }}>
-          Feel free to reach out to me via email:
-        </p>
-        <a href="mailto:j.mantell@wustl.edu" style={emailStyle}>j.mantell@wustl.edu</a>
-        </div></div>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: '100vh',
+          backgroundColor: '#000',
+        }}
+      >
+        <a
+          href="https://www.linkedin.com/in/jaredmantell/"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={linkStyle}
+        >
+          Visit LinkedIn
+        </a>
+        <a href="/" style={linkStyle}>Back to Home</a>
+      </div>
     </>
   );
 }

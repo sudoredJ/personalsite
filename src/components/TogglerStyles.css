@@ -1,34 +1,26 @@
+
 :root {
-  --bg: #fef5b9;
-  --box: #fced97;
-  --light: #fffbaf;
-  --dark: #825a48;
-  --body: #251418;
-  --alt: #918d61;
+	--bg: #595080;
+	--box:#b46f7523;
+	--light: #8d555a;
+	--dark: #351919;
+	--body: #251418;
+	--alt: #ff949d;
 }
-body {
-  margin: 0;
-  padding: 0 0 20px 0;
-  position: relative;
-  background: var(--bg);
-  color: var(--body);
-  width: 100%;
-  min-height: 100vh;
-  font-family: 'Sometype Mono', monospace;
-  background-image: url("https://assets.codepen.io/5896374/seamless-yellow-carpet.jpg");
-  overflow-x: hidden;
-  transition: all 0.3s steps(3);
-}
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
-/* Reset margin and padding */
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
+	box-sizing: border-box;
+}
+
+::selection {
+	background: var(--body);
+	color: var(--bg);
+}
+
+html {
+	overflow-x: hidden;
+}
+
 body::before {
 	content: "";
 	position: absolute;
@@ -43,6 +35,9 @@ body::before {
 	transition: inherit;
 }
 
+body {
+    font-family: 'Trebuchet MS', sans-serif;
+}
 body.toggled::before {
 	opacity: 0.5;
 	mix-blend-mode: color-burn;
@@ -296,7 +291,7 @@ nav a:hover span {
 h1 {
 	width: 100%;
 	text-align: center;
-	text-transform:lowercase;
+	text-transform: uppercase;
 	margin: 0;
 	padding: 20px;
 }
@@ -391,26 +386,7 @@ h3 {
 	left: 20px;
 }
 
-.hinge {
-	position: absolute;
-	top: 20px;
-	width: 16px;
-	height: calc(100% - 40px);
-	border-radius: 3px;
-	border: 2px solid;
-	background: linear-gradient(0deg, #a28b81 0%, #825a48 40%, #825a48 45%, #251418 45%, #251418 55%, #825a48 55%, #825a48 60%, #a28b81 100%);
-	background-size: 30px 30px;
-	box-shadow: 3px 3px 3px rgba(0,0,0,0.3), 3px 3px 3px inset rgba(255,200,200,0.25), -3px -3px 3px inset rgba(0,0,0,0.25);
-}
 
-.hinge.left {
-	left: -8px;
-	box-shadow: -3px 3px 3px rgba(0,0,0,0.3), 3px 3px 3px inset rgba(255,200,200,0.25), -3px -3px 3px inset rgba(0,0,0,0.25);
-}
-
-.hinge.right {
-	right: -8px;
-}
 
 .open-left {
   position: relative;
@@ -483,44 +459,3 @@ h3 {
 	background: var(--body);
 	border-radius: 90% 90% 3px 3px;
 }
-  a {
-    z-index: 10000; /* Adjust as needed, should be higher than the cursor's z-index */
-    pointer-events: auto;
-    transition: color 0.3s ease;
-    position: relative; /* z-index only works on positioned elements (position:absolute, position:relative, or position:fixed) */
-  }  
-  /* Ensure full height */
-  html, body {
-    height: 100%;
-  }
-  
-  .cursor-dot,
-.cursor-dot-outline {
-    margin: auto;
-    justify-content: center;
-    pointer-events: none;
-    top: 50%;
-    left: 50%;
-    border-radius: 50%;
-    z-index: 9999;
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, border 0.3s ease-in-out;
-}
-
-.cursor-dot {
-  position: fixed;
-  width: 13px;
-  height: 13px;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #F1838B;
-}
-
-.cursor-dot-outline {
-  position: fixed;
-  width: 40px;
-  height: 40px;
-  border: 2px solid transparent;
-  transform: translate(-50%, -50%);
-}
-
-
