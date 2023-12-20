@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ReactMarkdown from 'react-markdown';
 
 const AdminPage = () => {
     const [title, setTitle] = useState('');
@@ -16,7 +17,6 @@ const AdminPage = () => {
             });
             const data = await response.json();
             console.log(data.message);
-            // Reset form or handle success as needed
             setTitle('');
             setBody('');
         } catch (error) {
@@ -36,6 +36,7 @@ const AdminPage = () => {
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
                         placeholder="Enter post title"
+                        style={{ fontSize: '2rem' }} // Larger font size for title
                     />
                 </div>
                 <div>
@@ -44,11 +45,15 @@ const AdminPage = () => {
                         id="body"
                         value={body}
                         onChange={(e) => setBody(e.target.value)}
-                        placeholder="Enter post content"
-                    ></textarea>
+                        style={{ width: '50%', height: '400px' }}
+                    />
                 </div>
                 <button type="submit">Submit Post</button>
             </form>
+            <div>
+                <h2>Preview</h2>
+                <ReactMarkdown>{body}</ReactMarkdown>
+            </div>
         </div>
     );
 };

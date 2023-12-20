@@ -1,1 +1,6 @@
-[{"title":"test","body":"test"},{"title":"test2","body":"test\n"},{"title":"blog0","body":"test!"}]
+[
+  {
+    "title": "0thBlog",
+    "body": "***hello, world***"
+  }
+]
