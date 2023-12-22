@@ -17,7 +17,7 @@ export default function BlogPost({ post }) {
             <div style={{ textAlign: 'justify', display: 'inline-block' }}>
                 <ReactMarkdown>{post.body}</ReactMarkdown>
             </div>
-            <Link href="/" style={{ display: 'block', marginTop: '2rem' }}>
+            <Link href="https://jaredmantell.com/blog#" style={{ display: 'block', marginTop: '2rem' }}>
                 Back to Blog
             </Link>
         </div>
