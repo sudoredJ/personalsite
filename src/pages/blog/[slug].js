@@ -18,7 +18,7 @@ export default function BlogPost({ post }) {
                 <ReactMarkdown>{post.body}</ReactMarkdown>
             </div>
             <Link href="/" style={{ display: 'block', marginTop: '2rem' }}>
-                Back to Home
+                Back to Blog
             </Link>
         </div>
     );
