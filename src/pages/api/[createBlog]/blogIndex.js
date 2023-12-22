@@ -16,8 +16,9 @@ export default function BlogIndex({ posts }) {
 }
 
 export async function getStaticProps() {
-    const res = await fetch('http://localhost:3000/api/getBlogPosts');
-    const posts = await res.json();
+    const fullPath = path.join(process.cwd(), 'blogPosts.json');
+    const fileContents = fs.readFileSync(fullPath, 'utf8');
+    const posts = JSON.parse(fileContents);
 
     return {
         props: { posts },

@@ -38,6 +38,8 @@ body::before {
 
 body {
     font-family: 'Trebuchet MS', sans-serif;
+	margin: 0;
+	padding: 0;
 }
 body.toggled::before {
 	opacity: 0.5;

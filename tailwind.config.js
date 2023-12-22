@@ -18,7 +18,7 @@ module.exports = {
         '4xl': '90.44px',
       },
       colors: {
-        bg: '#E1E1EA',
+        bg: '#FFFFFF',
         primary: '#1D1B25',
         text: '#201F27'
       },

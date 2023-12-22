@@ -41,8 +41,9 @@ export default function Home() {
   };
   return (
     <div className="page-wrapper">
-      <CustomCursor />
       <Stars />
+      <CustomCursor />
+
   
       <header className="pt-2 lg:pt-2">
         <div className="container mx-auto px-4">
@@ -56,10 +57,11 @@ export default function Home() {
         <div className="hero-wrapper">
           <Hero title="Hi, I'm Jared M." index>
             <p className="hero-description small width">
-              Thanks for coming to my little corner of hyperspace.
+              Thanks for coming to my corner of hyperspace.
               <br />
               <br />
-              <em>It's still under construction ;)</em>
+              <br />
+              <em>information is still missing from this site.<br /> more projects, art & other features coming soon. you're here early ;)</em>
             </p>
           </Hero>
         </div>

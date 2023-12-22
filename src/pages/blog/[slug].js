@@ -12,8 +12,8 @@ export default function BlogPost({ post }) {
     }
 
     return (
-        <div style={{ textAlign: 'center' }}>
-            <h1>{post.title}</h1>
+        <div style={{ backgroundColor: 'white', minHeight: '100vh', minWidth: '100vw', textAlign: 'center' }}>
+        <h1>{post.title}</h1>
             <div style={{ textAlign: 'justify', display: 'inline-block' }}>
                 <ReactMarkdown>{post.body}</ReactMarkdown>
             </div>
@@ -23,9 +23,6 @@ export default function BlogPost({ post }) {
         </div>
     );
 }
-
-
-
 
 export async function getStaticPaths() {
     const fullPath = path.join(process.cwd(), 'blogPosts.json');
