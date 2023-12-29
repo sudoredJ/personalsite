@@ -6,6 +6,7 @@ import { Hero } from '../components/Hero';
 import CustomCursor from "../components/CustomCursor";
 import Toggler from "../components/toggler";
 
+
 export default function Home() {
 
   const linkSectionStyle = {
@@ -83,7 +84,7 @@ export default function Home() {
                   <Link href="/contact"><p style={linkStyle}>Contact</p></Link>
                 </div>
                 <div style={{ cursor: 'pointer', marginBottom: '20px' }}>
-                  <Link href="/aiart"><p style={linkStyle}>View my AI art</p></Link>
+                  <Link href="/aiart"><p style={linkStyle}>View my art</p></Link>
                 </div>
                 <div style={{ cursor: 'pointer', marginBottom: '20px' }}>
                   <Link href="/project-page"><p style={linkStyle}>Project Page</p></Link>
