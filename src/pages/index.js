@@ -62,7 +62,7 @@ export default function Home() {
               <br />
               <br />
               <br />
-              <em>information is still missing from this site.<br /> more projects, art & other features coming soon. you're here early ;)</em>
+              <em>about 80% of the information I want on this site is missing.<br /> more projects, art & other features coming soon. you're here super early ;)</em>
             </p>
           </Hero>
         </div>
@@ -70,31 +70,39 @@ export default function Home() {
   
       <Toggler onToggle={handleToggle} />
       {toggledElements.element1 && (
-        <div>
-          <div class="box-wrap" style={{ width: '40%', margin: '0 auto' }}> {/* Reduce width to 40% */}
-            <div class="hinge left"></div>
-            <div id="audio" class="box open-left">
-              <div class="screw right"></div>
+  <div>
+    <div class="box-wrap" style={{ width: '40%', margin: '0 auto' }}> {/* Increase width back to 60% */}
+      <div class="hinge left"></div>
+      <div id="audio" class="box open-left">
+        <div class="screw right"></div>
 
-              <div style={linkSectionStyle}>
-                <div style={{ cursor: 'pointer', marginBottom: '20px' }}>
-                  <Link href="/globevid"><p style={linkStyle}>My story so far</p></Link>
-                </div>
-                <div style={{ cursor: 'pointer', marginBottom: '20px' }}>
-                  <Link href="/contact"><p style={linkStyle}>Contact</p></Link>
-                </div>
-                <div style={{ cursor: 'pointer', marginBottom: '20px' }}>
-                  <Link href="/aiart"><p style={linkStyle}>View my art</p></Link>
-                </div>
-                <div style={{ cursor: 'pointer', marginBottom: '20px' }}>
-                  <Link href="/project-page"><p style={linkStyle}>Project Page</p></Link>
-                </div>
-                <a className="button" href="#" data-toggle="audio" onClick={() => router.push('/blog')}>Blog</a>    
-              </div>
+        <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'flex-start' }}>
+          <div style={{ ...linkSectionStyle, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', flex: 1 }}>
+            <div style={{ cursor: 'pointer', marginBottom: '20px' }}>
+              <Link href="/globevid"><p style={linkStyle}>My story so far</p></Link>
             </div>
+            <div style={{ cursor: 'pointer', marginBottom: '20px' }}>
+              <Link href="/contact"><p style={linkStyle}>Contact</p></Link>
+            </div>
+            <div style={{ cursor: 'pointer', marginBottom: '20px' }}>
+              <Link href="/aiart"><p style={linkStyle}>View my art</p></Link>
+            </div>
+            <div style={{ cursor: 'pointer', marginBottom: '20px' }}>
+              <Link href="/project-page"><p style={linkStyle}>Project Page</p></Link>
+            </div>
+            <a className="button" href="#" data-toggle="audio" onClick={() => router.push('/blog')}>Blog</a>    
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', cursor: 'pointer', marginBottom: '20px', flex: 1, marginTop: '20px' }}>
+  <a href="https://jared19.bandcamp.com/" target="_blank" style={linkStyle}>My music <br></br><i>(coming Feb. '23!)</i></a>
+</div>
+          <div style={{ flex: 1 }}>
+            {/* Add content here if needed */}
           </div>
         </div>
-      )}
+      </div>
     </div>
-  );
+  </div>
+)}
+</div>
+);
 }
