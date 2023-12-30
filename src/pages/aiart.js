@@ -7,6 +7,7 @@ import 'react-responsive-modal/styles.css';
 import Toggler from "../components/toggler";
 
 
+
 export default function Art_Showcase() {
   const titleStyle = {
     fontSize: '2rem',
@@ -19,6 +20,26 @@ export default function Art_Showcase() {
   const handleToggle = (element) => {
     setToggledElements({ ...toggledElements, [element]: !toggledElements[element] });
   };
+
+  const fgcuImages = [
+    '00192-498937530.png',
+    '00202-3724312188.png',
+    '00209-198626321.png',
+    '00215-198626327.png',
+    '00224-198626336.png',
+    '00228-198626340.png',
+    '00243-59794364.png',
+    '00245-59794366.png',
+    '00247-59794368.png',
+    '00249-59794370.png',
+    '00260-1190224729.png',
+  ].map(image => `/fgcu/${image}`);
+  
+  const [openFgcu, setOpenFgcu] = React.useState(false);
+  
+  const onOpenFgcuModal = () => setOpenFgcu(true);
+  const onCloseFgcuModal = () => setOpenFgcu(false);
+  
   const images = [
     '00208-1299650397.png',
     '00097-2885711723.png',
@@ -63,32 +84,45 @@ export default function Art_Showcase() {
         }}
       >
         <h1 style={titleStyle}>Art Showcase</h1>
-        <a className="button" href="#" data-toggle="audio" onClick={onOpenModal}>WashU Pixel Art</a>
-        <div className="a">
-          {toggledElements.element1 && (
-            <div>
-              <a href="#_" className="b">
-                <span className="c">
-                  <span className="d"></span>
-                  <span className="e"></span>
-                </span>
-                <span className="g" data-rounded="rounded-lg"></span>
-              </a>
-            </div>
-          )}
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10rem' }}>
+  <a className="button" href="#" data-toggle="audio" onClick={onOpenModal}>WashU Pixel Art</a>
+  <a className="button" href="#" data-toggle="audio" onClick={onOpenFgcuModal}>FGCU Pixel Art</a>
+</div>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <img src="https://s11.gifyu.com/images/SgVhM.gif" alt="Artwork of St. Louis" style={{width: '200px', marginTop: '2rem'}} />
+          <img src="/00276-3611803204.png" alt="Artwork from public folder" style={{width: '200px', marginTop: '2rem'}} />
         </div>
-        <img src="https://s11.gifyu.com/images/SgVhM.gif" alt="Artwork of St. Louis" style={{width: '200px', marginTop: '2rem'}} />
-        <img src="/00276-3611803204.png" alt="Artwork from public folder" style={{width: '200px', marginTop: '2rem'}} />
-        <Modal open={open} onClose={onCloseModal} center>
-          <Carousel>
-            {images.filter(src => src.includes('00')).map((src, index) => (
-              <div key={index}>
-                <img src={src} alt={`Artwork ${index}`} />
-              </div>
-            ))}
-          </Carousel>
-        </Modal>
-        <a href="/" style={titleStyle}>Back to Home</a>
+        <Modal open={open} onClose={onCloseModal} center styles={{ modal: { maxWidth: '30%', maxHeight: '70%' } }}>
+  <Carousel>
+    {images.filter(src => src.includes('00')).map((src, index) => (
+      <div key={index}>
+        <img src={src} alt={`Artwork ${index}`} style={{ maxWidth: '100%', maxHeight: '100%' }} />
+      </div>
+    ))}
+  </Carousel>
+</Modal>
+<Modal open={open} onClose={onCloseModal} center styles={{ modal: { maxWidth: '30%', maxHeight: '70%' } }}>
+  <Carousel>
+    {images.filter(src => src.includes('00')).map((src, index) => (
+      <div key={index}>
+        <img src={src} alt={`Artwork ${index}`} style={{ maxWidth: '100%', maxHeight: '100%' }} />
+      </div>
+    ))}
+  </Carousel>
+</Modal>
+
+<Modal open={openFgcu} onClose={onCloseFgcuModal} center styles={{ modal: { maxWidth: '30%', maxHeight: '70%' } }}>
+  <Carousel>
+    {fgcuImages.map((src, index) => (
+      <div key={index}>
+        <img src={src} alt={`Artwork ${index}`} style={{ maxWidth: '100%', maxHeight: '100%' }} />
+      </div>
+    ))}
+  </Carousel>
+</Modal>
+
+<a href="/" style={titleStyle}>Back to Home</a>
+
       </div>
     </div>
   );}
