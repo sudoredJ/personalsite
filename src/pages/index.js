@@ -18,7 +18,20 @@ export default function Home() {
     width: '100%', // Take full width of the parent
   };
   const router = useRouter();
-
+  const ImageComponent = () => {
+    const [isClicked, setIsClicked] = useState(false);
+  
+    const handleClick = () => {
+      setIsClicked(!isClicked);
+    };
+  
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginTop: '20px' }} onClick={handleClick}>
+        <img src={isClicked ? "/jaredm.gif" : "/00020-953883047.png"} alt="Jared M." width="800" height="217" />
+        <p style={{ color: '#FFFFFF', cursor: 'pointer' }}>Click me!</p>
+      </div>
+    );
+  };
   const linkStyle = {
     color: '#FFFFFF',
     textDecoration: 'underline',
@@ -93,16 +106,19 @@ export default function Home() {
             <a className="button" href="#" data-toggle="audio" onClick={() => router.push('/blog')}>Blog</a>    
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', cursor: 'pointer', marginBottom: '20px', flex: 1, marginTop: '20px' }}>
-  <a href="https://jared19.bandcamp.com/" target="_blank" style={linkStyle}>My music <br></br><i>(coming Feb. '23!)</i></a>
+  <a href="https://jared19.bandcamp.com/" target="_blank" style={linkStyle}>My music <br></br><i>(coming Feb. '24!)</i></a>
 </div>
           <div style={{ flex: 1 }}>
-            {/* Add content here if needed */}
           </div>
         </div>
       </div>
     </div>
   </div>
 )}
+          <div>
+      <ImageComponent />
+    </div>
+
 </div>
 );
 }

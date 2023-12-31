@@ -1,7 +1,10 @@
 import React from 'react'
 
 const capitalizeWords = (str) => {
-  return str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
+  if (typeof str === 'string') {
+    return str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
+  }
+  return str;
 }
 
 export const Hero = ({ highlight, subTitle, title, children, index }) => {
@@ -13,7 +16,7 @@ export const Hero = ({ highlight, subTitle, title, children, index }) => {
           {subTitle}
         </div>
       )}
-      {title && <h1 style={{ textTransform: 'none' }}>{capitalizeWords(title)}</h1>}
+      {title && <h1 style={{ textTransform: 'none' }}>{typeof title === 'string' ? capitalizeWords(title) : title}</h1>}
       {children && children}
     </header>
   )
