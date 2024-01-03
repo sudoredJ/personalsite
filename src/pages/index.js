@@ -31,7 +31,7 @@ export default function Home() {
         <p style={{ color: '#FFFFFF', cursor: 'pointer' }}>Click me!</p>
       </div>
     );
-  };
+  }; //this is imagecomponent. put it in the blog page when you can. its my name
   const linkStyle = {
     color: '#FFFFFF',
     textDecoration: 'underline',
@@ -92,33 +92,34 @@ export default function Home() {
         <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'flex-start' }}>
           <div style={{ ...linkSectionStyle, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', flex: 1 }}>
             <div style={{ cursor: 'pointer', marginBottom: '20px' }}>
-              <Link href="/globevid"><p style={linkStyle}>My story so far</p></Link>
-            </div>
-            <div style={{ cursor: 'pointer', marginBottom: '20px' }}>
-              <Link href="/contact"><p style={linkStyle}>Contact</p></Link>
-            </div>
-            <div style={{ cursor: 'pointer', marginBottom: '20px' }}>
-              <Link href="/aiart"><p style={linkStyle}>View my art</p></Link>
-            </div>
-            <div style={{ cursor: 'pointer', marginBottom: '20px' }}>
-              <Link href="/project-page"><p style={linkStyle}>Project Page</p></Link>
-            </div>
-            <a className="button" href="#" data-toggle="audio" onClick={() => router.push('/blog')}>Blog</a>    
-          </div>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', cursor: 'pointer', marginBottom: '20px', flex: 1, marginTop: '20px' }}>
-  <a href="https://jared19.bandcamp.com/" target="_blank" style={linkStyle}>My music <br></br><i>(coming Feb. '24!)</i></a>
+            <Link href="/globevid"><p style={linkStyle}>My story so far</p></Link>
 </div>
-          <div style={{ flex: 1 }}>
-          </div>
+<div style={{ cursor: 'pointer', marginBottom: '20px' }}>
+  <Link href="/contact"><p style={linkStyle}>Contact</p></Link>
+</div>
+<div style={{ cursor: 'pointer', marginBottom: '20px' }}>
+  <Link href="/aiart"><p style={linkStyle}>View my art</p></Link>
+</div>
+<div style={{ cursor: 'pointer', marginBottom: '20px' }}>
+  <Link href="/project-page"><p style={linkStyle}>Project Page</p></Link>
+</div>
+<a className="button" href="#" data-toggle="audio" onClick={() => router.push('/blog')}>Blog</a>    
+</div>
+<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', cursor: 'pointer', marginBottom: '20px', flex: 1, marginTop: '20px' }}>
+  <div style={{ cursor: 'pointer', marginBottom: '20px' }}>
+    <a href="https://jared19.bandcamp.com/" target="_blank" style={linkStyle}>My music</a>
+  </div>
+  <div style={{ cursor: 'pointer', marginBottom: '20px' }}>
+    <a href="https://www.goodreads.com/user/show/172937649-jared19" target="_blank" style={linkStyle}>My GoodReads</a>
+  </div>
+</div>
+<div style={{ flex: 1 }}>
+</div>
         </div>
       </div>
     </div>
   </div>
 )}
-          <div>
-      <ImageComponent />
-    </div>
-
 </div>
 );
 }
