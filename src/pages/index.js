@@ -31,7 +31,7 @@ export default function Home() {
         <p style={{ color: '#FFFFFF', cursor: 'pointer' }}>Click me!</p>
       </div>
     );
-  }; //this is imagecomponent. put it in the blog page when you can. its my name
+  }; 
   const linkStyle = {
     color: '#FFFFFF',
     textDecoration: 'underline',
@@ -111,6 +111,9 @@ export default function Home() {
   </div>
   <div style={{ cursor: 'pointer', marginBottom: '20px' }}>
     <a href="https://www.goodreads.com/user/show/172937649-jared19" target="_blank" style={linkStyle}>My GoodReads</a>
+  </div>
+  <div style={{ cursor: 'pointer', marginBottom: '20px' }}>
+    <Link href="/YTMusic"><p style={linkStyle}>Music Collection Project</p></Link>
   </div>
 </div>
 <div style={{ flex: 1 }}>
