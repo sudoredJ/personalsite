@@ -75,7 +75,7 @@ export default function Home() {
               <br />
               <br />
               <br />
-              <em>about 80% of the information I want on this site is missing.<br /> more projects, art & other features coming soon. you're here super early ;)</em>
+              <em>This site is, like, 20% finished, so some info & projects are missing.<br />My focus is on some other wesbites right now, so you're here early ;)</em>
             </p>
           </Hero>
         </div>
