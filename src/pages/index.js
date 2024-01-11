@@ -57,7 +57,6 @@ export default function Home() {
     <div className="page-wrapper">
       <Stars />
       <CustomCursor />
-
   
       <header className="pt-2 lg:pt-2">
         <div className="container mx-auto px-4">
@@ -68,61 +67,73 @@ export default function Home() {
       </header>
   
       <div className="container" style={{ display: 'flex', justifyContent: 'center' }}>
-        <div className="hero-wrapper">
-          <Hero title="Hi, I'm Jared M." index>
-            <p className="hero-description small width">
-              Thanks for coming to my corner of hyperspace.
-              <br />
-              <br />
-              <br />
-              <em>This site is, like, 20% finished, so some info & projects are missing.<br />My focus is on some other wesbites right now, so you're here early ;)</em>
-            </p>
-          </Hero>
-        </div>
+      <div className="hero-wrapper" style={{ display: 'flex', alignItems: 'center' }}>
+  <Hero title="Hi, I'm Jared M." index>
+    <p className="hero-description small width">
+      Thanks for coming to my corner of hyperspace.
+      <br />
+      <br />
+      <br />
+      <em>This site is, like, 20% finished, so some info & projects are missing.<br />My focus is on some other wesbites right now, so you're here early ;)</em>
+    </p>
+  </Hero>
+  <img src="/globe.gif" alt="Globe" style={{ marginLeft: '30px', width: '25%', height: '75%' }}/></div>
       </div>
-  
+  <br></br>
       <Toggler onToggle={handleToggle} />
-      {toggledElements.element1 && (
+{toggledElements.element1 && (
   <div>
-    <div class="box-wrap" style={{ width: '40%', margin: '0 auto' }}> {/* Increase width back to 60% */}
+    <div class="box-wrap" style={{ width: '40%', margin: '0 auto' }}>
       <div class="hinge left"></div>
       <div id="audio" class="box open-left">
         <div class="screw right"></div>
 
         <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'flex-start' }}>
-          <div style={{ ...linkSectionStyle, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', flex: 1 }}>
-            <div style={{ cursor: 'pointer', marginBottom: '20px' }}>
-            <Link href="/globevid"><p style={linkStyle}>My story so far</p></Link>
+          <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', width: '100%' }}>
+            <div style={{ ...linkSectionStyle, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', flex: 1 }}>
+              <div style={{ cursor: 'pointer', marginBottom: '20px' }}>
+                <Link href="/globevid"><p style={linkStyle}>My story so far</p></Link>
+              </div>
+              <div style={{ cursor: 'pointer', marginBottom: '20px' }}>
+                <Link href="/contact"><p style={linkStyle}>Contact</p></Link>
+              </div>
+              <div style={{ cursor: 'pointer', marginBottom: '20px' }}>
+                <Link href="/aiart"><p style={linkStyle}>View my art</p></Link>
+              </div>
+              <div style={{ cursor: 'pointer', marginBottom: '20px' }}>
+                <Link href="/project-page"><p style={linkStyle}>Project Page</p></Link>
+              </div>
+              <div style={{ cursor: 'pointer', marginBottom: '20px', display: 'flex', justifyContent: 'flex-start', alignItems: 'center', width: '100%' }}>
+  <a className="button" href="#" data-toggle="audio" onClick={() => router.push('/blog')}>Blog</a>
+  <a href="https://twitter.com/jared19_acc" target="_blank">
+    <img src="/twitter.gif" alt="Twitter" style={{ width: '25%', height: 'auto', marginLeft: '10px' }}/>
+  </a>
 </div>
-<div style={{ cursor: 'pointer', marginBottom: '20px' }}>
-  <Link href="/contact"><p style={linkStyle}>Contact</p></Link>
-</div>
-<div style={{ cursor: 'pointer', marginBottom: '20px' }}>
-  <Link href="/aiart"><p style={linkStyle}>View my art</p></Link>
-</div>
-<div style={{ cursor: 'pointer', marginBottom: '20px' }}>
-  <Link href="/project-page"><p style={linkStyle}>Project Page</p></Link>
-</div>
-<a className="button" href="#" data-toggle="audio" onClick={() => router.push('/blog')}>Blog</a>    
-</div>
-<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', cursor: 'pointer', marginBottom: '20px', flex: 1, marginTop: '20px' }}>
-  <div style={{ cursor: 'pointer', marginBottom: '20px' }}>
-    <a href="https://jared19.bandcamp.com/" target="_blank" style={linkStyle}>My music</a>
-  </div>
-  <div style={{ cursor: 'pointer', marginBottom: '20px' }}>
-    <a href="https://www.goodreads.com/user/show/172937649-jared19" target="_blank" style={linkStyle}>My GoodReads</a>
-  </div>
-  <div style={{ cursor: 'pointer', marginBottom: '20px' }}>
-    <Link href="/YTMusic"><p style={linkStyle}>Music Collection Project</p></Link>
-  </div>
-</div>
-<div style={{ flex: 1 }}>
-</div>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', cursor: 'pointer', marginBottom: '20px', flex: 1, marginTop: '20px' }}>
+              <div style={{ cursor: 'pointer', marginBottom: '20px' }}>
+                <a href="https://jared19.bandcamp.com/" target="_blank" style={linkStyle}>My music</a>
+              </div>
+              <div style={{ cursor: 'pointer', marginBottom: '20px' }}>
+                <a href="https://www.goodreads.com/user/show/172937649-jared19" target="_blank" style={linkStyle}>GoodReads</a>
+              </div>
+              <div style={{ cursor: 'pointer', marginBottom: '20px' }}>
+                <Link href="/YTMusic"><p style={linkStyle}>Music Collection Project</p></Link>
+              </div>
+              <div style={{ cursor: 'pointer', marginBottom: '20px' }}>
+                <a href="https://www.youtube.com/channel/UCUJm8_b7mSzak-pvZv3ykdw" target="_blank" style={linkStyle}>YouTube Channel</a>
+              </div>
+              <div style={{ cursor: 'pointer', marginBottom: '20px' }}>
+                <Link href="/infodiet"><p style={linkStyle}>My information diet</p></Link>
+              </div>
+            </div>
+            <div style={{ flex: 1 }}></div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 )}
-</div>
-);
+    </div>
+  );
 }
