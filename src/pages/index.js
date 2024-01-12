@@ -66,22 +66,21 @@ export default function Home() {
         </div>
       </header>
   
-      <div className="container" style={{ display: 'flex', justifyContent: 'center' }}>
-      <div className="hero-wrapper" style={{ display: 'flex', alignItems: 'center' }}>
-  <Hero title="Hi, I'm Jared M." index>
-    <p className="hero-description small width">
-      Thanks for coming to my corner of hyperspace.
-      <br />
-      <br />
-      <br />
-      <em>This site is, like, 20% finished, so some info & projects are missing.<br />My focus is on some other wesbites right now, so you're here early ;)</em>
-    </p>
-  </Hero>
-  <img src="/globe.gif" alt="Globe" style={{ marginLeft: '30px', width: '25%', height: '75%' }}/></div>
-      </div>
+      <div className="container">
+    <div className="hero-wrapper">
+    <Hero title="Hi, I'm Jared M." index>
+  <p className="hero-description small width" style={{ textAlign: 'center' }}>
+    Thanks for coming to my corner of hyperspace.
+    <br />
+    <br />
+    <br />
+    <em>This site is about 20% finished, so some info & projects are missing.<br />My focus is on some other wesbites right now, so you're here early ;)</em>
+  </p>
+</Hero>
+    </div>
   <br></br>
-      <Toggler onToggle={handleToggle} />
-{toggledElements.element1 && (
+  <Toggler onToggle={handleToggle} />
+    {toggledElements.element1 && (
   <div>
     <div class="box-wrap" style={{ width: '40%', margin: '0 auto' }}>
       <div class="hinge left"></div>
@@ -123,9 +122,6 @@ export default function Home() {
               <div style={{ cursor: 'pointer', marginBottom: '20px' }}>
                 <a href="https://www.youtube.com/channel/UCUJm8_b7mSzak-pvZv3ykdw" target="_blank" style={linkStyle}>YouTube Channel</a>
               </div>
-              <div style={{ cursor: 'pointer', marginBottom: '20px' }}>
-                <Link href="/infodiet"><p style={linkStyle}>My information diet</p></Link>
-              </div>
             </div>
             <div style={{ flex: 1 }}></div>
           </div>
@@ -133,7 +129,8 @@ export default function Home() {
       </div>
     </div>
   </div>
-)}
+    )}
     </div>
+  </div>
   );
 }

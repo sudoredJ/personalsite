@@ -11,7 +11,7 @@ const containerStyle = {
 const projectStyle = {
   maxWidth: '800px',
   margin: '20px',
-  padding: '20px',
+  padding: '9x',
   border: '1px solid #ddd',
   borderRadius: '8px',
 };
@@ -23,8 +23,8 @@ export default function Projects() {
         <h1>My Projects:</h1>
         {/* Project 0: Centrifuge */}
         <div style={projectStyle}>
-          <h2>Centrifuge</h2>
-          <a href="https://github.com/organizations/Centrifuge-Micro" target="_blank" rel="noopener noreferrer">View Project</a>
+          <h2>48hr.dev</h2>
+          <a href="https://48hr.dev" target="_blank" rel="noopener noreferrer">View Project</a>
         </div>
         {/* Project 1: Auto Sunset */}
         <div style={projectStyle}>
@@ -36,7 +36,7 @@ export default function Projects() {
         {/* Proj 3 VRClub*/}
         <div style={projectStyle}>
           <h2>VRClub</h2>
-          <p>Project ended Jan. 2023. Formerly second-largest Virtual-Reality forum on Discord. <br></br>Member of Discord Partner Program</p>
+          <p>Project ended Jan. 2023. Formerly second-largest Virtual-Reality forum on Discord. Custom bots w/ 9000+ users <br></br>Member of Discord Partner Program</p>
                   </div>
         {/* Project 2: Rethinking Stereotypes */}
         <div style={projectStyle}>
