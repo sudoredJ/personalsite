@@ -12,7 +12,7 @@ export default function Home() {
   const linkSectionStyle = {
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'flex-start', // Align text to the left
+    justifyContent: 'flex-start', 
     alignItems: 'flex-start', // Align text to the left
     color: '#FFFFFF',
     width: '100%', // Take full width of the parent
@@ -67,20 +67,16 @@ export default function Home() {
       </header>
   
       <div className="container">
-    <div className="hero-wrapper">
-    <Hero title="Hi, I'm Jared M." index>
-  <p className="hero-description small width" style={{ textAlign: 'center' }}>
-    Thanks for coming to my corner of hyperspace.
-    <br />
-    <br />
-    <br />
-    <em>This site is about 20% finished, so some info & projects are missing.<br />My focus is on some other wesbites right now, so you're here early ;)</em>
-  </p>
-</Hero>
-    </div>
+  <div className="hero-wrapper" style={{ marginTop: '100px' }}>
+  <Hero title="Hi, I'm Jared M." index className="bouncy">
+          <p className="hero-description small width" style={{ textAlign: 'center' }}>
+        Thanks for coming to my (unfinished) corner of hyperspace.
+      </p>
+    </Hero>
+  </div>
   <br></br>
   <Toggler onToggle={handleToggle} />
-    {toggledElements.element1 && (
+  {toggledElements.element1 && (
   <div>
     <div class="box-wrap" style={{ width: '40%', margin: '0 auto' }}>
       <div class="hinge left"></div>

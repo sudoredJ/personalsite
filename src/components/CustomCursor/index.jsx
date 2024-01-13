@@ -9,7 +9,7 @@ const CustomCursor = () => {
       ? { x: 0.5 * window.innerWidth, y: 0.5 * window.innerHeight }
       : { x: 0, y: 0 }
   );
-  const params = { pointsNumber: 40, widthFactor: 0.5, mouseThreshold: 0.6, spring: 0.4, friction: 0.5 };
+  const params = { pointsNumber: 40, widthFactor: 0.5, mouseThreshold: 0.6, spring: 0.4, friction: 0.35 };
   const trail = useRef(new Array(params.pointsNumber).fill().map(() => ({ x: pointer.current.x, y: pointer.current.y, dx: 0, dy: 0 })));
   let mouseMoved = false;
   let mouseIsMoving = false;
