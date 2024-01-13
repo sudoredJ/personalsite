@@ -1,0 +1,26 @@
+.link {
+    position: relative;
+    color: #FFFFFF;
+    text-decoration: none;
+    overflow: hidden;
+}
+
+.link::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: #3490dc;
+    overflow: hidden;
+    z-index: 2;
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    transition: transform 0.3s ease-in-out;
+    white-space: nowrap;
+}
+
+.link:hover::after {
+    transform: scaleX(1);
+}

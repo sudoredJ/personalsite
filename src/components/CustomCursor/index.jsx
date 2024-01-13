@@ -35,8 +35,10 @@ const CustomCursor = () => {
   };
   const update = (t) => {
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
+    if (!canvas) return; // Add this line
   
+    const ctx = canvas.getContext('2d');
+   
     if (!mouseIsMoving) {
       for (let i = 0; i < trail.current.length; i++) {
         const angle = (t / 50 + i / trail.current.length * 1 * Math.PI) % (2* Math.PI);

@@ -5,6 +5,7 @@ import Stars from '../components/Stars';
 import { Hero } from '../components/Hero';
 import CustomCursor from "../components/CustomCursor";
 import Toggler from "../components/toggler";
+import AnimatedLink from '../components/AnimatedLink';
 
 
 export default function Home() {
