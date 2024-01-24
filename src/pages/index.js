@@ -123,7 +123,7 @@ export default function Home() {
                 <Link href="/bucketlist"><p style={linkStyle}>My Bucket List</p></Link>
               </div>
               <div style={{ cursor: 'pointer', marginBottom: '20px' }}>
-              <a href="https://youtu.be/KoZEpkjwAPw" target="_blank" style={linkStyle}>Sigil Click Here</a>
+              <a href="https://youtu.be/KoZEpkjwAPw" target="_blank" style={linkStyle}>Introduction for Sigil.</a>
             </div>
             </div>
             <div style={{ flex: 1 }}></div>
