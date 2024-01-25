@@ -122,6 +122,9 @@ export default function Home() {
               <div style={{ cursor: 'pointer', marginBottom: '20px' }}>
                 <Link href="/bucketlist"><p style={linkStyle}>My Bucket List</p></Link>
               </div>
+              <div style={{ cursor: 'pointer', marginBottom: '20px' }}>
+              <a href="https://youtu.be/KoZEpkjwAPw" target="_blank" style={linkStyle}>Introduction for Sigil.</a>
+            </div>
             </div>
             <div style={{ flex: 1 }}></div>
           </div>
