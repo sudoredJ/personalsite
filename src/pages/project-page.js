@@ -5,8 +5,10 @@ import { Hero } from '../components/Hero';
 import CustomCursor from "../components/CustomCursor";
 import Toggler from "../components/toggler";
 import AnimatedLink from '../components/AnimatedLink';
+
 export default function ProjectPage() {
   const projects = [
+    { name: 'H@W — Hackathons @ WashU', link: 'https://hackathonsatwustl.vercel.app/' },
     { name: 'RadiantAI', link: 'https://radiantai.health/' },
     { name: 'ConnectAlum', link: 'https://www.connectalum.com/' },
     { name: '48hr.dev', link: 'https://github.com/Centrifuge-Micro' },
@@ -14,22 +16,18 @@ export default function ProjectPage() {
       name: 'Auto Sunset - Google Calendar Extension', 
       description: `
         Schedule the sunset automatically into your Google Calendar. ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀              
-      
+
         Why: I grew up on Florida's Gulf coast, so I've been spoiled by sunsets gliding under Clearwater Beach's skyline while the sky and ocean turn gorgeous shades of purple. If you're working hard, you can miss the world passing by. There's only one sunset a day. Take the ten minutes and watch it, preferably someplace nice.
       `, 
       link: 'https://chromewebstore.google.com/detail/auto-sunset/nplhhaelnagjbbljmhijclndlnhecooj?hl=en' 
     },
     { name: 'VRClub', description: 'Project ended Jan. 2023. Formerly second-largest Virtual-Reality forum on Discord. Custom bots w/ 9000+ users' },
-    { name: 'Rethinking Stereotypes: Demographic Analysis of Sexual Violence Perpetrators in Prisons', link: 'https://docs.google.com/presentation/d/10et8P5tWzDsn5RTp6BkPAmeC6Df6psMsOMvOIBIQ9EM/edit?usp=sharing' },
-  ];
+  ]; // Fixed here
 
   return (
-    
     <div className="page-wrapper">
-            <CustomCursor />
+      <CustomCursor />
       <Stars />
-
-
       <header className="pt-2 lg:pt-2">
         <div className="container mx-auto px-4">
           <nav className="flex justify-between font-medium">
