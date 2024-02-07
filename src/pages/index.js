@@ -54,6 +54,11 @@ export default function Home() {
       [elementKey]: !prevState[elementKey]
     }));
   };
+  
+  const handleScrewClick = (event) => {
+    event.currentTarget.classList.toggle('rotated');
+  };
+
   return (
     <div className="page-wrapper">
       <Stars />
@@ -71,7 +76,7 @@ export default function Home() {
   <div className="hero-wrapper" style={{ marginTop: '100px' }}>
   <Hero title="Hi, I'm Jared M." index className="bouncy">
           <p className="hero-description small width" style={{ textAlign: 'center' }}>
-        Thanks for coming to my (very unfinished) corner of hyperspace.
+        Thanks for stopping by my little corner of the net.
       </p>
     </Hero>
   </div>
@@ -82,7 +87,7 @@ export default function Home() {
     <div class="box-wrap" style={{ width: '40%', margin: '0 auto' }}>
       <div class="hinge left"></div>
       <div id="audio" class="box open-left">
-        <div class="screw right"></div>
+        <div class="screw right" onClick={handleScrewClick}></div>
 
         <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'flex-start' }}>
           <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', width: '100%' }}>
@@ -100,11 +105,11 @@ export default function Home() {
                 <Link href="/project-page"><p style={linkStyle}>Project Page</p></Link>
               </div>
               <div style={{ cursor: 'pointer', marginBottom: '20px', display: 'flex', justifyContent: 'flex-start', alignItems: 'center', width: '100%' }}>
-  <a className="button" href="#" data-toggle="audio" onClick={() => router.push('/blog')}>Blog</a>
-  <a href="https://twitter.com/jared19_acc" target="_blank">
-    <img src="/twitter.gif" alt="Twitter" style={{ width: '25%', height: 'auto', marginLeft: '10px' }}/>
-  </a>
-</div>
+               <a className="button" href="#" data-toggle="audio" onClick={() => router.push('/blog')}>Blog</a>
+                <a href="https://twitter.com/jared19_acc" target="_blank">
+                    <img src="/twitter.gif" alt="Twitter" style={{ width: '25%', height: 'auto', marginLeft: '10px' }}/>
+                 </a>
+            </div>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', cursor: 'pointer', marginBottom: '20px', flex: 1, marginTop: '20px' }}>
               <div style={{ cursor: 'pointer', marginBottom: '20px' }}>
