@@ -2,7 +2,8 @@
 :root {
 	--bg: #595080;
 	--box:#b46f7523;
-	--light: #8d555a;
+	--light: #b46f7523;
+	--light2: #8d555a;
 	--dark: #351919;
 	--body: #251418;
 	--alt: #ff949d;
@@ -272,7 +273,7 @@ nav a:first-of-type {
 
 nav a:focus,
 nav a:hover {
-	background: var(--light);
+	background: var(--light2);
 	box-shadow: -2px -2px 2px 2px inset rgba(255, 255, 255, 0.5),
 		2px 2px 1px 2px inset var(--dark);
 }
@@ -320,12 +321,12 @@ h3 {
     letter-spacing: 0.05em;
     padding: 0.5em 1em;
     border-radius: 3px;
-    box-shadow: 0.2em 0.2em 0.2em 0.1em inset var(--light), 0.2em 0.2em 0.2em rgba(238, 255, 0, 0.39);
+    box-shadow: 0.2em 0.2em 0.2em 0.1em inset var(--light2), 0.2em 0.2em 0.2em rgba(238, 255, 0, 0.39);
     transition: all 0.2s steps(2);
 }
 
 .button:hover {
-	color: var(--light);
+	color: var(--light2);
 	background: var(--buttonhover);
 	box-shadow: -0.2em -0.2em 0.2em 0.1em inset var(--body), 0.2em 0.2em 0.2em rgba(0,0,0,0.25);
 }
@@ -343,7 +344,7 @@ h3 {
 }
 
 .button.alt:hover {
-	background: var(--light);
+	background: var(--light2);
 }
 
 .button.alt:focus {
@@ -434,7 +435,7 @@ h3 {
 	width: 60px;
 	height: 50px;
 	margin: 5px auto;
-	background: var(--light);
+	background: var(--light2);
 	border-radius: 40% 40% 50% 50%;
 	box-shadow: 3px 3px 3px rgba(0,0,0,0.25), 3px 3px 3px inset rgba(0,0,0,0.15), -3px -3px 3px inset rgba(255,255,255,0.5);
 	position: relative;

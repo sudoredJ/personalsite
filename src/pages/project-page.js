@@ -26,7 +26,7 @@ export default function ProjectPage() {
 
   return (
     <div className="page-wrapper">
-      <CustomCursor />
+      <CustomCursor style={{ position: 'fixed', top: 0, left: 0 }} />
       <Stars />
       <header className="pt-2 lg:pt-2">
         <div className="container mx-auto px-4">
