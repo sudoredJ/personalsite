@@ -356,7 +356,6 @@ h3 {
 	top: 0;
 	width: 18px;
 	left: calc(50% - 9px);
-    cursor: pointer; /* Added to make the screw clickable */
 }
 
 .screw::after,

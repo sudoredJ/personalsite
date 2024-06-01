@@ -76,7 +76,7 @@ export default function Home() {
   <div className="hero-wrapper" style={{ marginTop: '100px' }}>
   <Hero title="Hi, I'm Jared M." index className="bouncy">
           <p className="hero-description small width" style={{ textAlign: 'center' }}>
-        Thanks for stopping by my little corner of the net.
+        Thanks for stopping by my (unfinished & outdated) corner of the net.
       </p>
     </Hero>
   </div>
