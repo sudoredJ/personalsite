@@ -26,7 +26,7 @@ export default function BucketList() {
     "Northern Lights",
     "Ski Alaskan Backcountry",
     "Horseback riding in Kyrgyzstan",
-    "Caldera of Mount Erebus & McMurdo Station",
+    "Caldera of Mount Erebus & work at McMurdo Station for a season",
     "Craters of the Moon, Idaho",
     "Iceland",
     "Chichen Itza",
@@ -35,7 +35,6 @@ export default function BucketList() {
     "Summit Denali",
     "Skydive",
     "Midway Atoll",
-    "Victoria Falls",
     "Bailong Elevator"
   ];
 
