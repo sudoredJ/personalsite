@@ -16,8 +16,8 @@ const CustomCursor = () => {
   let moveTimeout = null;
 
   const updateMousePosition = (eX, eY) => {
-    pointer.current.x = eX;
-    pointer.current.y = eY;
+    pointer.current.x = eX + window.scrollX;
+    pointer.current.y = eY + window.scrollY;
     mouseMoved = true;
     mouseIsMoving = true;
     clearTimeout(moveTimeout);
@@ -33,9 +33,10 @@ const CustomCursor = () => {
       canvas.height = window.innerHeight;
     }
   };
+
   const update = (t) => {
     const canvas = canvasRef.current;
-    if (!canvas) return; // Add this line
+    if (!canvas) return;
   
     const ctx = canvas.getContext('2d');
    
@@ -46,7 +47,6 @@ const CustomCursor = () => {
         trail.current[i].y = pointer.current.y + Math.sin(angle) * 20;
       }
     }
-  
   
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     trail.current.forEach((p, pIdx) => {
@@ -62,30 +62,35 @@ const CustomCursor = () => {
   
     ctx.lineCap = "round";
     ctx.beginPath();
-    ctx.moveTo(trail.current[0].x, trail.current[0].y);
+    ctx.moveTo(trail.current[0].x - window.scrollX, trail.current[0].y - window.scrollY);
   
-    // Create a single gradient for the entire trail
-    const gradient = ctx.createLinearGradient(trail.current[0].x, trail.current[0].y, trail.current[trail.current.length - 1].x, trail.current[trail.current.length - 1].y);
+    const gradient = ctx.createLinearGradient(
+      trail.current[0].x - window.scrollX, 
+      trail.current[0].y - window.scrollY, 
+      trail.current[trail.current.length - 1].x - window.scrollX, 
+      trail.current[trail.current.length - 1].y - window.scrollY
+    );
   
     for (let i = 1; i < trail.current.length - 1; i++) {
-      const xc = 0.5 * (trail.current[i].x + trail.current[i + 1].x);
-      const yc = 0.5 * (trail.current[i].y + trail.current[i + 1].y);
+      const xc = 0.5 * (trail.current[i].x + trail.current[i + 1].x) - window.scrollX;
+      const yc = 0.5 * (trail.current[i].y + trail.current[i + 1].y) - window.scrollY;
   
-      // Adjust the color stops based on the current position in the trail
       const progress = i / (trail.current.length - 1);
-      gradient.addColorStop(progress, `rgba(${255 * progress}, ${255 * (1 - progress)}, ${128 * progress +127}, 0.99)`); // gradient from bright teal to magenta, semi-transparent  
+      gradient.addColorStop(progress, `rgba(${255 * progress}, ${255 * (1 - progress)}, ${128 * progress +127}, 0.99)`);
       ctx.strokeStyle = gradient;
-      ctx.lineWidth = params.widthFactor * (params.pointsNumber - i)+4;
-      ctx.quadraticCurveTo(trail.current[i].x, trail.current[i].y, xc, yc);
+      ctx.lineWidth = params.widthFactor * (params.pointsNumber - i) + 4;
+      ctx.quadraticCurveTo(trail.current[i].x - window.scrollX, trail.current[i].y - window.scrollY, xc, yc);
     }
   
     ctx.stroke();
   
     window.requestAnimationFrame(update);
-  }; useEffect(() => {
-    window.addEventListener("click", e => updateMousePosition(e.pageX, e.pageY));
-    window.addEventListener("mousemove", e => updateMousePosition(e.pageX, e.pageY));
-    window.addEventListener("touchmove", e => updateMousePosition(e.targetTouches[0].pageX, e.targetTouches[0].pageY));
+  };
+
+  useEffect(() => {
+    window.addEventListener("click", e => updateMousePosition(e.clientX, e.clientY));
+    window.addEventListener("mousemove", e => updateMousePosition(e.clientX, e.clientY));
+    window.addEventListener("touchmove", e => updateMousePosition(e.targetTouches[0].clientX, e.targetTouches[0].clientY));
     window.addEventListener("resize", setupCanvas);
 
     setupCanvas();
