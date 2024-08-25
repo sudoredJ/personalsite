@@ -12,17 +12,21 @@ export default function ProjectPage() {
     { name: 'RadiantAI', link: 'https://radiantai.health/' },
     { name: 'ConnectAlum', link: 'https://www.connectalum.com/' },
     { name: '48hr.dev', link: 'https://github.com/Centrifuge-Micro' },
-    { 
-      name: 'Auto Sunset - Google Calendar Extension', 
+    {
+      name: 'Auto Sunset - Google Calendar Extension',
       description: `
         Schedule the sunset automatically into your Google Calendar. ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀              
-
         Why: I grew up on Florida's Gulf coast, so I've been spoiled by sunsets gliding under Clearwater Beach's skyline while the sky and ocean turn gorgeous shades of purple. If you're working hard, you can miss the world passing by. There's only one sunset a day. Take the ten minutes and watch it, preferably someplace nice.
-      `, 
-      link: 'https://chromewebstore.google.com/detail/auto-sunset/nplhhaelnagjbbljmhijclndlnhecooj?hl=en' 
+      `,
+      link: 'https://chromewebstore.google.com/detail/auto-sunset/nplhhaelnagjbbljmhijclndlnhecooj?hl=en'
     },
     { name: 'VRClub', description: 'Project ended Jan. 2023. Formerly second-largest Virtual-Reality forum on Discord. Custom bots w/ 9000+ users' },
-  ]; // Fixed here
+    {
+      name: '3D ASCII Shapes in C++ with Webcam Integration',
+      description: 'A project that generates 3D ASCII art shapes using C++ and integrates with a webcam for real-time interaction.',
+      link: 'https://x.com/redj_red/status/1825608725274755277'
+    },
+  ];
 
   return (
     <div className="page-wrapper">
@@ -35,7 +39,6 @@ export default function ProjectPage() {
           </nav>
         </div>
       </header>
-
       <div className="container">
         <div className="hero-wrapper" style={{ marginTop: '1px' }}>
           <Hero title="My Projects" index className="bouncy">
