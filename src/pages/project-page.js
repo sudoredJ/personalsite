@@ -6,27 +6,43 @@ import CustomCursor from "../components/CustomCursor";
 
 export default function ProjectPage() {
   const projects = [
-    { name: 'RadiantAI', link: 'https://radiantai.health/' },
-    { name: 'ConnectAlum', link: 'https://www.connectalum.com/' },
     {
-      name: 'Auto Sunset - Google Calendar Extension',
-      link: 'https://chromewebstore.google.com/detail/auto-sunset/nplhhaelnagjbbljmhijclndlnhecooj?hl=en'
+      name: 'Connect',
+      description: 'Built edtech software with friends, sold to a few high schools, backed by BLCK VC, Maxine Clark, et al.',
+      link: 'https://www.connectalum.com/'
     },
-    { 
-      name: 'DefineAloud',
-      description: 'Use ctrl + space on highlighted text to see the definition of what you\'re reading',
-      link: 'https://chromewebstore.google.com/detail/definealoud/dfkakcohmbmmgogkfjdkikpjjfkfmehb'
-    },
-    { 
-      name: 'HLAI',
-      description: 'Highlight AI, use ctrl + space on highlighted text to see an AI-powered explanation of what you\'re reading',
-      link: 'https://chromewebstore.google.com/detail/hlai/dkppddahgjflcipegjnjbladmgmimkpa'
-    },
-    { name: 'VRClub', description: 'Project ended Jan. 2023. Formerly second-largest Virtual-Reality forum on Discord. Custom bots w/ 9000+ users' },
     {
       name: '3D ASCII Shapes in C++ with Webcam Integration',
       description: 'A project that generates 3D ASCII art shapes using C++ and integrates with a webcam for real-time interaction.',
       link: 'https://x.com/redj_red/status/1825608725274755277'
+    },
+    { 
+      name: 'VRClub', 
+      description: 'Project ended Jan. 2023. Formerly second-largest Virtual-Reality forum on Discord. Custom bots w/ 9000+ users' 
+    },
+    {
+      name: 'HLAI',
+      description: 'Highlight AI, use ctrl + space on highlighted text to see an AI-powered explanation of what you\'re reading',
+      link: 'https://chromewebstore.google.com/detail/hlai/dkppddahgjflcipegjnjbladmgmimkpa'
+    },
+    {
+      name: 'Animated Buzz Aldrin Wallpaper',
+      link: 'https://steamcommunity.com/sharedfiles/filedetails/?id=3232212198'
+    },
+    { 
+      name: 'RadiantAI', 
+      description: 'AI Query Engine for Medical Purposes. Internship; collaborated with ex-FAANG engineers & an ML PhD',
+      link: 'https://youtu.be/oLPFchAx3bI',
+    },
+    {
+      name: 'DefineAloud',
+      description: 'Use ctrl + space on highlighted text to see the definition of what you\'re reading',
+      link: 'https://chromewebstore.google.com/detail/definealoud/dfkakcohmbmmgogkfjdkikpjjfkfmehb'
+    },
+    {
+      name: 'Auto Sunset',
+      description: 'Google Calendar Extension',
+      link: 'https://chromewebstore.google.com/detail/auto-sunset/nplhhaelnagjbbljmhijclndlnhecooj?hl=en'
     },
   ];
 
@@ -45,12 +61,12 @@ export default function ProjectPage() {
         <div className="hero-wrapper" style={{ marginTop: '1px' }}>
           <Hero title="My Projects" index className="bouncy">
             {projects.map((project, index) => (
-              <div key={index} style={{ 
-                width: '80%', 
-                maxWidth: '500px', 
-                margin: '1rem auto', 
-                backgroundColor: 'rgba(255, 255, 255, 0.1)', 
-                padding: '1.5rem', 
+              <div key={index} style={{
+                width: '80%',
+                maxWidth: '500px',
+                margin: '1rem auto',
+                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                padding: '1.5rem',
                 borderRadius: '10px',
                 boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
                 backdropFilter: 'blur(5px)',
@@ -60,24 +76,44 @@ export default function ProjectPage() {
               >
                 <h2 style={{ color: '#FFFFFF', fontSize: '1.5rem', marginBottom: '0.5rem' }}>{project.name}</h2>
                 {project.description && <p style={{ color: '#CCCCCC', marginBottom: '1rem' }}>{project.description}</p>}
-                {project.link && (
-                  <a 
-                    href={project.link} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    style={{ 
-                      color: '#FFFFFF', 
-                      textDecoration: 'none',
-                      backgroundColor: 'rgba(59, 130, 246, 0.5)',
-                      padding: '0.5rem 1rem',
-                      borderRadius: '5px',
-                      transition: 'background-color 0.3s ease-in-out',
-                    }}
-                    className="hover:bg-blue-600"
-                  >
-                    View Project
-                  </a>
-                )}
+                <div style={{ display: 'flex', gap: '1rem' }}>
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        color: '#FFFFFF',
+                        textDecoration: 'none',
+                        backgroundColor: 'rgba(59, 130, 246, 0.5)',
+                        padding: '0.5rem 1rem',
+                        borderRadius: '5px',
+                        transition: 'background-color 0.3s ease-in-out',
+                      }}
+                      className="hover:bg-blue-600"
+                    >
+                      View Project
+                    </a>
+                  )}
+                  {project.videoLink && (
+                    <a
+                      href={project.videoLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        color: '#FFFFFF',
+                        textDecoration: 'none',
+                        backgroundColor: 'rgba(255, 0, 0, 0.5)',
+                        padding: '0.5rem 1rem',
+                        borderRadius: '5px',
+                        transition: 'background-color 0.3s ease-in-out',
+                      }}
+                      className="hover:bg-red-600"
+                    >
+                      Watch Video
+                    </a>
+                  )}
+                </div>
               </div>
             ))}
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: 'auto', marginTop: '2rem' }}>

@@ -106,7 +106,7 @@ export default function Home() {
               </div>
               <div style={{ cursor: 'pointer', marginBottom: '20px', display: 'flex', justifyContent: 'flex-start', alignItems: 'center', width: '100%' }}>
                <a className="button" href="#" data-toggle="audio" onClick={() => router.push('/blog')}>Blog</a>
-                <a href="https://twitter.com/jared19_acc" target="_blank">
+                <a href="https://x.com/redj_red" target="_blank">
                     <img src="/twitter.gif" alt="Twitter" style={{ width: '25%', height: 'auto', marginLeft: '10px' }}/>
                  </a>
             </div>
