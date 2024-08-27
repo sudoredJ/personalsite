@@ -7,32 +7,39 @@ import CustomCursor from "../components/CustomCursor";
 export default function ProjectPage() {
   const projects = [
     {
+      name: '3D ASCII Shapes in C++ with Webcam Integration',
+      description: 'A project that generates 3D ASCII art shapes using C++ and integrates with a webcam for real-time interaction.',
+      link: 'https://github.com/jaredmantell/cppCube',
+      videoLink: 'https://x.com/redj_red/status/1825608725274755277'
+    },
+    {
+      name: 'VideoSnipper',
+      description: 'A C++ screen-recorder that functions exactly like the Windows Snip tool (win + shift + s)',
+      link: 'https://github.com/jaredmantell/winShiftV',
+      videoLink: 'https://youtube.com/shorts/cQXab7depDU'
+    },
+    {
       name: 'Connect',
       description: 'Built edtech software with friends, sold to a few high schools, backed by BLCK VC, Maxine Clark, et al.',
       link: 'https://www.connectalum.com/'
-    },
-    {
-      name: '3D ASCII Shapes in C++ with Webcam Integration',
-      description: 'A project that generates 3D ASCII art shapes using C++ and integrates with a webcam for real-time interaction.',
-      link: 'https://x.com/redj_red/status/1825608725274755277'
-    },
-    { 
-      name: 'VRClub', 
-      description: 'Project ended Jan. 2023. Formerly second-largest Virtual-Reality forum on Discord. Custom bots w/ 9000+ users' 
     },
     {
       name: 'HLAI',
       description: 'Highlight AI, use ctrl + space on highlighted text to see an AI-powered explanation of what you\'re reading',
       link: 'https://chromewebstore.google.com/detail/hlai/dkppddahgjflcipegjnjbladmgmimkpa'
     },
-    {
-      name: 'Animated Buzz Aldrin Wallpaper',
-      link: 'https://steamcommunity.com/sharedfiles/filedetails/?id=3232212198'
-    },
     { 
       name: 'RadiantAI', 
       description: 'AI Query Engine for Medical Purposes. Internship; collaborated with ex-FAANG engineers & an ML PhD',
       link: 'https://youtu.be/oLPFchAx3bI',
+    },
+    { 
+      name: 'VRClub', 
+      description: 'Project ended Jan. 2023. Formerly second-largest Virtual-Reality forum on Discord. Custom bots w/ 9000+ users' 
+    },
+    {
+      name: 'Animated Buzz Aldrin Wallpaper',
+      link: 'https://steamcommunity.com/sharedfiles/filedetails/?id=3232212198'
     },
     {
       name: 'DefineAloud',
@@ -41,7 +48,7 @@ export default function ProjectPage() {
     },
     {
       name: 'Auto Sunset',
-      description: 'Google Calendar Extension',
+      description: 'Google Calendar Extension; automatically schedules the sunset each week based on user loaction',
       link: 'https://chromewebstore.google.com/detail/auto-sunset/nplhhaelnagjbbljmhijclndlnhecooj?hl=en'
     },
   ];
