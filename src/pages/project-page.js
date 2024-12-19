@@ -7,6 +7,12 @@ import CustomCursor from "../components/CustomCursor";
 export default function ProjectPage() {
   const projects = [
     {
+      name: 'Wii Nunchuk Mouse',
+      description: 'Modified a Bulgarian Adafruit Wii Nunchuk project. I added adjustable sensitivity, scroll mode using accelerometer data, and fixed directional movement bugs. Features dual-button sensitivity control and accelerometer-based scrolling.',
+      link: 'https://github.com/jaredmantell/anavi-handle-improved',
+      videoLink: 'https://x.com/0xredJ/status/1853183472371896799'
+    },
+    {
       name: '3D ASCII Shapes in C++ with Webcam Integration',
       description: 'A project that generates 3D ASCII art shapes using C++ and integrates with a webcam for real-time interaction.',
       link: 'https://github.com/jaredmantell/cppCube',
