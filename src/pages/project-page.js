@@ -7,6 +7,11 @@ import CustomCursor from "../components/CustomCursor";
 export default function ProjectPage() {
   const projects = [
     {
+    name: 'Algorithmic Analysis of Research Virality in Science Communication',
+    description: 'Quantitative study of memetic patterns in how scientific research spreads on r/science, analyzing the impact of recommendation engines and content framing on information propagation. Research produced under Jonathan Stray, CHAI at UC Berkeley CS 294: Designing Algorithmic Media.',
+    link: 'https://github.com/vetlewj/algorithmic-media'
+    },
+    {
       name: 'Wii Nunchuk Mouse',
       description: 'Modified a Bulgarian Adafruit Wii Nunchuk project. I added adjustable sensitivity, scroll mode using accelerometer data, and fixed directional movement bugs. Features dual-button sensitivity control and accelerometer-based scrolling.',
       link: 'https://github.com/jaredmantell/anavi-handle-improved',
