@@ -13,7 +13,7 @@ export default function ProjectPage() {
     },
     {
       name: 'Intertial Interface: a Ludic UX for Digital Artists',
-      description: 'Leveraging novel methods of ludic human-computer interaction to power digital art systems. Research produced under Dr. Kimiko Ryokai, UC Berkeley BCNM.',
+      description: 'Leveraging unconventional methods of human-computer interaction to power novel UX in digital art systems. Research produced under Dr. Kimiko Ryokai, UC Berkeley BCNM.',
       link: 'https://github.com/jaredmantell/IntertialInterface'
     },
     {
