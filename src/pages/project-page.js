@@ -12,8 +12,8 @@ export default function ProjectPage() {
     link: 'https://github.com/vetlewj/algorithmic-media'
     },
     {
-      name: 'Intertial Interface: Researching Novel Methods of Ludic Human-Computer Interaction',
-      description: 'Leveraging gestural inertia & unconventional expressions of user input to power digital art systems in immersive environments. Research produced under Dr. Kimiko Ryokai, UC Berkeley BCNM.',
+      name: 'Intertial Interface: a Ludic UX for Digital Artists',
+      description: 'Leveraging novel methods of ludic human-computer interaction to power digital art systems. Research produced under Dr. Kimiko Ryokai, UC Berkeley BCNM.',
       link: 'https://github.com/jaredmantell/IntertialInterface'
     },
     {
