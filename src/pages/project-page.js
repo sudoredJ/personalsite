@@ -17,7 +17,7 @@ export default function ProjectPage() {
       link: 'https://github.com/jaredmantell/IntertialInterface'
     },
     {
-      name: 'Simple Berkeley Food Finder',
+      name: 'cheapFoodBerkeley',
       description: 'Whipped up a one-file site to list local meals under $10 around Berkeley. At its peak, the site had 4k MAU, averaging 2k MAU throughout the semester. Everything in the Bay Area was expensive, so I wanted to help people not go broke for every meal.',
       link: 'https://imgur.com/gallery/cheapfoodberkeley-simple-site-GK0LviF',
     },
