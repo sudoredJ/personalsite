@@ -12,6 +12,16 @@ export default function ProjectPage() {
     link: 'https://github.com/vetlewj/algorithmic-media'
     },
     {
+      name: 'Intertial Interface: Researching Novel Methods of Ludic Human-Computer Interaction',
+      description: 'Leveraging gestural inertia & unconventional expressions of user input to power digital art systems in immersive environments. Research produced under Dr. Kimiko Ryokai, UC Berkeley BCNM.',
+      link: 'https://github.com/jaredmantell/IntertialInterface'
+    },
+    {
+      name: 'Simple Berkeley Food Finder',
+      description: 'Whipped up a one-file site to list local meals under $10 around Berkeley. At its peak, the site had 4k MAU, averaging 2k MAU throughout the semester. Everything in the Bay Area was expensive, so I wanted to help people not go broke for every meal.',
+      link: 'https://imgur.com/gallery/cheapfoodberkeley-simple-site-GK0LviF',
+    },
+    {
       name: 'Wii Nunchuk Mouse',
       description: 'Modified a Bulgarian Adafruit Wii Nunchuk project. I added adjustable sensitivity, scroll mode using accelerometer data, and fixed directional movement bugs. Features dual-button sensitivity control and accelerometer-based scrolling.',
       link: 'https://github.com/jaredmantell/anavi-handle-improved',
