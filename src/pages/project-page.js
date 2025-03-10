@@ -7,9 +7,15 @@ import CustomCursor from "../components/CustomCursor";
 export default function ProjectPage() {
   const projects = [
     {
-    name: 'Algorithmic Analysis of Research Virality in Science Communication',
-    description: 'Quantitative study of memetic patterns in how scientific research spreads on r/science, analyzing the impact of recommendation engines and content framing on information propagation. Research produced under Jonathan Stray, CHAI at UC Berkeley CS 294: Designing Algorithmic Media.',
-    link: 'https://github.com/vetlewj/algorithmic-media'
+      name: 'Theia - VR X-Ray Vision',
+      description: 'Built a VR headset that can detect people through walls using WiFi signals at TreeHacks \'25. Uses ESP32 microcontrollers for WiFi CSI data collection, CNN-based classification on NVIDIA Jetson, and Unity for spatial visualization. Won prize from OpenAI.',
+      link: 'https://github.com/Timothy2105/theia',
+      videoLink: 'https://x.com/0xredJ/status/1891783078781043087'
+    },
+    {
+      name: 'Algorithmic Analysis of Research Virality in Science Communication',
+      description: 'Quantitative study of memetic patterns in how scientific research spreads on r/science, analyzing the impact of recommendation engines and content framing on information propagation. Research produced under Jonathan Stray, CHAI at UC Berkeley CS 294: Designing Algorithmic Media.',
+      link: 'https://github.com/vetlewj/algorithmic-media'
     },
     {
       name: 'Intertial Interface: a Ludic UX for Digital Artists',
@@ -28,10 +34,22 @@ export default function ProjectPage() {
       videoLink: 'https://x.com/0xredJ/status/1853183472371896799'
     },
     {
+      name: 'Conway\'s Game of You',
+      description: 'An interactive installation combining Arduino, Processing, and a living plant to control Conway\'s Game of Life. Users interact with a digital ecosystem by gently squeezing a plant, creating a bridge between organic and digital worlds. Built for INFO 262 under Prof. Kimiko Ryokai.',
+      link: 'https://0xredj.medium.com/lab-4-conways-game-of-you-b8e0fd11ef45',
+      videoLink: 'https://youtu.be/igh0gfN7NRLk'
+    },
+    {
+      name: 'Haskell Mandelbrot Animation',
+      description: 'An animated Mandelbrot set explorer written in Haskell that creates colorful terminal animations. Features real-time exploration of the famous fractal set with ANSI terminal graphics.',
+      link: 'https://github.com/0xredJ/haskell2',
+      videoLink: 'https://x.com/0xredJ/status/1866107472391606323'
+    },
+    {
       name: '3D ASCII Shapes in C++ with Webcam Integration',
       description: 'A project that generates 3D ASCII art shapes using C++ and integrates with a webcam for real-time interaction.',
       link: 'https://github.com/jaredmantell/cppCube',
-      videoLink: 'https://x.com/redj_red/status/1825608725274755277'
+      videoLink: 'https://x.com/0xredJ/status/1825608725274755277'
     },
     {
       name: 'VideoSnipper',
@@ -63,11 +81,6 @@ export default function ProjectPage() {
       link: 'https://steamcommunity.com/sharedfiles/filedetails/?id=3232212198'
     },
     {
-      name: 'DefineAloud',
-      description: 'Use ctrl + space on highlighted text to see the definition of what you\'re reading',
-      link: 'https://chromewebstore.google.com/detail/definealoud/dfkakcohmbmmgogkfjdkikpjjfkfmehb'
-    },
-    {
       name: 'Auto Sunset',
       description: 'Google Calendar Extension; automatically schedules the sunset each week based on user loaction',
       link: 'https://chromewebstore.google.com/detail/auto-sunset/nplhhaelnagjbbljmhijclndlnhecooj?hl=en'
@@ -76,7 +89,6 @@ export default function ProjectPage() {
 
   return (
     <div className="page-wrapper">
-      <CustomCursor />
       <Stars />
       <header className="pt-2 lg:pt-2">
         <div className="container mx-auto px-4">
@@ -88,65 +100,92 @@ export default function ProjectPage() {
       <div className="container">
         <div className="hero-wrapper" style={{ marginTop: '1px' }}>
           <Hero title="My Projects" index className="bouncy">
-            {projects.map((project, index) => (
-              <div key={index} style={{
-                width: '80%',
-                maxWidth: '500px',
-                margin: '1rem auto',
-                backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                padding: '1.5rem',
-                borderRadius: '10px',
-                boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-                backdropFilter: 'blur(5px)',
-                transition: 'transform 0.3s ease-in-out',
-              }}
-              className="hover:transform hover:scale-105"
-              >
-                <h2 style={{ color: '#FFFFFF', fontSize: '1.5rem', marginBottom: '0.5rem' }}>{project.name}</h2>
-                {project.description && <p style={{ color: '#CCCCCC', marginBottom: '1rem' }}>{project.description}</p>}
-                <div style={{ display: 'flex', gap: '1rem' }}>
-                  {project.link && (
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{
-                        color: '#FFFFFF',
-                        textDecoration: 'none',
-                        backgroundColor: 'rgba(59, 130, 246, 0.5)',
-                        padding: '0.5rem 1rem',
-                        borderRadius: '5px',
-                        transition: 'background-color 0.3s ease-in-out',
-                      }}
-                      className="hover:bg-blue-600"
-                    >
-                      View Project
-                    </a>
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
+              gap: '2rem',
+              padding: '2rem'
+            }}>
+              {projects.map((project, index) => (
+                <div
+                  key={index}
+                  style={{
+                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                    padding: '1.5rem',
+                    borderRadius: '10px',
+                    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                    backdropFilter: 'blur(5px)',
+                    transition: 'transform 0.3s ease-in-out',
+                  }}
+                  className="hover:transform hover:scale-105"
+                >
+                  <h2 style={{ color: '#FFFFFF', fontSize: '1.5rem', marginBottom: '0.5rem' }}>
+                    {project.name}
+                  </h2>
+                  {project.description && (
+                    <p style={{ color: '#CCCCCC', marginBottom: '1rem' }}>
+                      {project.description}
+                    </p>
                   )}
-                  {project.videoLink && (
-                    <a
-                      href={project.videoLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{
-                        color: '#FFFFFF',
-                        textDecoration: 'none',
-                        backgroundColor: 'rgba(255, 0, 0, 0.5)',
-                        padding: '0.5rem 1rem',
-                        borderRadius: '5px',
-                        transition: 'background-color 0.3s ease-in-out',
-                      }}
-                      className="hover:bg-red-600"
-                    >
-                      Watch Video
-                    </a>
-                  )}
+                  <div style={{ display: 'flex', gap: '1rem' }}>
+                    {project.link && (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                          color: '#FFFFFF',
+                          textDecoration: 'none',
+                          backgroundColor: 'rgba(59, 130, 246, 0.5)',
+                          padding: '0.5rem 1rem',
+                          borderRadius: '5px',
+                          transition: 'background-color 0.3s ease-in-out',
+                        }}
+                        className="hover:bg-blue-600"
+                      >
+                        View Project
+                      </a>
+                    )}
+                    {project.videoLink && (
+                      <a
+                        href={project.videoLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                          color: '#FFFFFF',
+                          textDecoration: 'none',
+                          backgroundColor: 'rgba(255, 0, 0, 0.5)',
+                          padding: '0.5rem 1rem',
+                          borderRadius: '5px',
+                          transition: 'background-color 0.3s ease-in-out',
+                        }}
+                        className="hover:bg-red-600"
+                      >
+                        Watch Video
+                      </a>
+                    )}
+                  </div>
                 </div>
-              </div>
-            ))}
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: 'auto', marginTop: '2rem' }}>
+              ))}
+            </div>
+            <div style={{ 
+              display: 'flex', 
+              justifyContent: 'center', 
+              alignItems: 'center', 
+              marginTop: '4rem',
+              marginBottom: '2rem'
+            }}>
               <Link href="/">
-                <span style={{ color: '#FFFFFF', fontSize: '1.5rem', cursor: 'pointer', textDecoration: 'underline' }}>Go back home</span>
+                <span style={{
+                  color: '#FFFFFF',
+                  fontSize: '1.5rem',
+                  cursor: 'pointer',
+                  textDecoration: 'underline',
+                  transition: 'opacity 0.3s ease-in-out'
+                }}
+                className="hover:opacity-70">
+                  Go back home
+                </span>
               </Link>
             </div>
           </Hero>
