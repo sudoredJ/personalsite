@@ -26,37 +26,9 @@ export default function TypewriterSequence() {
     { prefix: 'I\'m ', text: 'vibing. Thanks for checking out my corner of the net!' }
   ];
 
-  // Check animation state on mount
+  // Remove the localStorage check from the first useEffect
   useEffect(() => {
-    const hasAnimated = localStorage.getItem('hasAnimated');
-    if (hasAnimated === 'true') {
-      // Skip to final state
-      setText(firstLine[firstLine.length - 1]);
-      setShowSecondLine(true);
-      setSecondLineText(secondLine[secondLine.length - 1].prefix + secondLine[secondLine.length - 1].text);
-      setShouldAnimate(false);
-    }
-
-    // Handle page visibility change
-    const handleVisibilityChange = () => {
-      if (document.hidden) {
-        // User left the page, skip to end
-        localStorage.setItem('hasAnimated', 'true');
-        setText(firstLine[firstLine.length - 1]);
-        setShowSecondLine(true);
-        setSecondLineText(secondLine[secondLine.length - 1].prefix + secondLine[secondLine.length - 1].text);
-        setShouldAnimate(false);
-      }
-    };
-
-    document.addEventListener('visibilitychange', handleVisibilityChange);
-    return () => {
-      document.removeEventListener('visibilitychange', handleVisibilityChange);
-    };
-  }, []);
-
-  // Cursor blink effect
-  useEffect(() => {
+    // Only keep the cursor blink effect
     const interval = setInterval(() => {
       setCursorVisible(v => !v);
     }, 500);
@@ -91,7 +63,6 @@ export default function TypewriterSequence() {
       } else if (!showSecondLine) {
         timeout = setTimeout(() => {
           setShowSecondLine(true);
-          localStorage.setItem('hasAnimated', 'true');
         }, 500);
       }
     }
