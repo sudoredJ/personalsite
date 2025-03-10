@@ -8,6 +8,7 @@ export default function TypewriterSequence() {
   const [secondLineText, setSecondLineText] = useState('I\'m a ');
   const [secondPhase, setSecondPhase] = useState(0);
   const [cursorVisible, setCursorVisible] = useState(true);
+  const [shouldAnimate, setShouldAnimate] = useState(true);
 
   const firstLine = [
     'Hi, I\'m RedJ',
@@ -25,6 +26,35 @@ export default function TypewriterSequence() {
     { prefix: 'I\'m ', text: 'vibing. Thanks for checking out my corner of the net!' }
   ];
 
+  // Check animation state on mount
+  useEffect(() => {
+    const hasAnimated = localStorage.getItem('hasAnimated');
+    if (hasAnimated === 'true') {
+      // Skip to final state
+      setText(firstLine[firstLine.length - 1]);
+      setShowSecondLine(true);
+      setSecondLineText(secondLine[secondLine.length - 1].prefix + secondLine[secondLine.length - 1].text);
+      setShouldAnimate(false);
+    }
+
+    // Handle page visibility change
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        // User left the page, skip to end
+        localStorage.setItem('hasAnimated', 'true');
+        setText(firstLine[firstLine.length - 1]);
+        setShowSecondLine(true);
+        setSecondLineText(secondLine[secondLine.length - 1].prefix + secondLine[secondLine.length - 1].text);
+        setShouldAnimate(false);
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
+  }, []);
+
   // Cursor blink effect
   useEffect(() => {
     const interval = setInterval(() => {
@@ -34,6 +64,8 @@ export default function TypewriterSequence() {
   }, []);
 
   useEffect(() => {
+    if (!shouldAnimate) return;
+
     let timeout;
 
     if (phase < firstLine.length - 1) {
@@ -57,15 +89,18 @@ export default function TypewriterSequence() {
           setText(firstLine[phase].slice(0, text.length + 1));
         }, 70);
       } else if (!showSecondLine) {
-        timeout = setTimeout(() => setShowSecondLine(true), 500);
+        timeout = setTimeout(() => {
+          setShowSecondLine(true);
+          localStorage.setItem('hasAnimated', 'true');
+        }, 500);
       }
     }
 
     return () => clearTimeout(timeout);
-  }, [text, phase, isDeleting, showSecondLine]);
+  }, [text, phase, isDeleting, showSecondLine, shouldAnimate]);
 
   useEffect(() => {
-    if (!showSecondLine) return;
+    if (!showSecondLine || !shouldAnimate) return;
 
     let timeout;
     const currentPhase = secondLine[secondPhase];
@@ -87,7 +122,6 @@ export default function TypewriterSequence() {
         }, 70);
       }
     } else {
-      // Final phase - just type out the rest
       if (secondLineText !== fullText) {
         timeout = setTimeout(() => {
           setSecondLineText(fullText.slice(0, secondLineText.length + 1));
@@ -96,7 +130,7 @@ export default function TypewriterSequence() {
     }
 
     return () => clearTimeout(timeout);
-  }, [secondLineText, secondPhase, isDeleting, showSecondLine]);
+  }, [secondLineText, secondPhase, isDeleting, showSecondLine, shouldAnimate]);
 
   const Cursor = () => (
     <style jsx>{`
