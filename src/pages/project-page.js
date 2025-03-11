@@ -28,6 +28,11 @@ export default function ProjectPage() {
       link: 'https://imgur.com/gallery/cheapfoodberkeley-simple-site-GK0LviF',
     },
     {
+      name: 'Antiqua Et Nova Audiobook',
+      description: 'Used KokoroTTS to convert the Pope\'s letter on AI into a free audiobook. Made the papal document on artificial intelligence more accessible through text-to-speech technology.',
+      link: 'https://www.youtube.com/watch?v=HgTsdm34NfE',
+    },
+    {
       name: 'Wii Nunchuk Mouse',
       description: 'Modified a Bulgarian Adafruit Wii Nunchuk project. I added adjustable sensitivity, scroll mode using accelerometer data, and fixed directional movement bugs. Features dual-button sensitivity control and accelerometer-based scrolling.',
       link: 'https://github.com/jaredmantell/anavi-handle-improved',
