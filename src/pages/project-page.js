@@ -29,7 +29,7 @@ export default function ProjectPage() {
     },
     {
       name: 'Antiqua Et Nova Audiobook',
-      description: 'Used KokoroTTS to convert the Pope\'s letter on AI into a free audiobook. Made the papal document on artificial intelligence more accessible through text-to-speech technology.',
+      description: 'Used KokoroTTS to convert the Pope\'s letter on AI into a free audiobook.',
       link: 'https://www.youtube.com/watch?v=HgTsdm34NfE',
     },
     {
