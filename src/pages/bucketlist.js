@@ -30,12 +30,20 @@ export default function BucketList() {
     "Craters of the Moon, Idaho",
     "Iceland",
     "Chichen Itza",
-    "Cruz's Mexican Grill in Barrow, AK",
+    <a href="https://www.tripadvisor.com/Restaurant_Review-g30940-d8098205-Reviews-Cruz_s_Mexican_Grill-Utqiagvik_Alaska.html" target="_blank">Cruz's Mexican Grill in Barrow, AK</a>,
     "Victoria Falls",
     "Summit Denali",
     "Skydive",
     "Midway Atoll",
-    "Bailong Elevator"
+    "Bailong Elevator",
+    "New York City",
+    "Chicago",
+    "Berlin",
+    "Tallinn",
+    "Sailing Across the Atlantic",
+    "Dine at a 3 Michelin Star Restaurant",
+    "Learn a Third Language",
+    "Witness an Active Volcano"
   ];
 
   return (
@@ -53,24 +61,45 @@ export default function BucketList() {
   
       <div className="container">
         <div className="hero-wrapper" style={{ marginTop: '100px' }}>
-          <Hero title="My Bucket List" index className="bouncy">
-            <div class="box-wrap" style={{ width: '40%', margin: '0 auto' }}>
-              <div class="hinge left"></div>
-              <div id="audio" class="box open-left">
-                <div class="screw right" style={{ border: 'none', outline: 'none' }}></div>
-                <ul>
+          <Hero title="My Bucket List" index>
+            <div className="box-wrap" style={{ width: '40%', margin: '0 auto' }}>
+              <div className="hinge left"></div>
+              <div id="audio" className="box open-left" style={{
+                background: 'var(--box)',
+                boxShadow: '5px 5px 3px inset rgba(255, 255, 255, 0.65), 5px 10px 10px 5px inset var(--light), -6px -6px 1px inset var(--dark), 3px 3px 0 rgba(0, 0, 0, 0.1), 5px 5px 0 rgba(0, 0, 0, 0.1), 7px 7px 0 rgba(0, 0, 0, 0.1), 9px 9px 0 rgba(0, 0, 0, 0.1)',
+                border: '2px solid',
+                borderRadius: '10px',
+                padding: '20px',
+                position: 'relative'
+              }}>
+                <div className="screw right"></div>
+                <ul style={{ 
+                  listStyleType: 'disc', 
+                  padding: '0 20px',
+                  margin: '0',
+                  color: '#FFFFFF'
+                }}>
                   {bucketListItems.map((item, index) => (
-                    <li key={index} style={{ color: '#FFFFFF', textAlign: 'center' }}>{item}</li>
+                    <li key={index} style={{ 
+                      textAlign: 'left',
+                      marginBottom: '8px',
+                      fontSize: '20px'
+                    }}>{item}</li>
                   ))}
                 </ul>
               </div>
-            </div>            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: 'auto' }}>
-
-  <Link href="/">
-    <p style={{ color: '#FFFFFF', fontSize: '2rem', textAlign: 'center' }}>Go back home</p>
-  </Link>
-</div>  
-     </Hero>
+            </div>
+            <Link href="/" style={{ 
+              color: '#FFFFFF', 
+              textDecoration: 'underline', 
+              fontSize: '20px',
+              display: 'block',
+              textAlign: 'center',
+              marginTop: '20px'
+            }}>
+              Go back home
+            </Link>
+          </Hero>
         </div>
       </div>
     </div>
