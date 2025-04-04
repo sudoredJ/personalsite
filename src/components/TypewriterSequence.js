@@ -1,34 +1,30 @@
 import React, { useState, useEffect } from 'react';
+import styles from '../styles/animations.module.css';
 
 export default function TypewriterSequence() {
   const [text, setText] = useState('');
   const [phase, setPhase] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [showSecondLine, setShowSecondLine] = useState(false);
-  const [secondLineText, setSecondLineText] = useState('I\'m a ');
+  const [secondLineText, setSecondLineText] = useState('');
   const [secondPhase, setSecondPhase] = useState(0);
   const [cursorVisible, setCursorVisible] = useState(true);
   const [shouldAnimate, setShouldAnimate] = useState(true);
+  const [isTypingDone, setIsTypingDone] = useState(false);
+  const [displayName, setDisplayName] = useState('Jared M.');
+  const [isHovering, setIsHovering] = useState(false);
 
   const firstLine = [
     'Hi, I\'m RedJ',
-    'Hi, I\'m @0xredj',
+    'Hi, I\'m @sudoredj',
     'Hi, I\'m Jared M.'
   ];
 
   const secondLine = [
-    { prefix: 'I\'m a ', text: 'software engineer' },
-    { prefix: 'I\'m an ', text: 'undergraduate student' },
-    { prefix: 'I\'m a ', text: 'former overwatch semi-pro' },
-    { prefix: 'I\'m a ', text: 'shitty musician' },
-    { prefix: 'I\'m a ', text: 'spicy-food enjoyer' },
-    { prefix: 'I\'m an ', text: '(ex) floridian' },
-    { prefix: 'I\'m ', text: 'vibing. Thanks for checking out my corner of the net!' }
+    { prefix: '', text: 'Thanks for checking out my corner of the net!' }
   ];
 
-  // Remove the localStorage check from the first useEffect
   useEffect(() => {
-    // Only keep the cursor blink effect
     const interval = setInterval(() => {
       setCursorVisible(v => !v);
     }, 500);
@@ -39,36 +35,28 @@ export default function TypewriterSequence() {
     if (!shouldAnimate) return;
 
     let timeout;
-
-    if (phase < firstLine.length - 1) {
-      if (!isDeleting && text === firstLine[phase]) {
-        timeout = setTimeout(() => setIsDeleting(true), 1000);
-      } else if (isDeleting && text === 'Hi, I\'m ') {
-        setIsDeleting(false);
-        setPhase(p => p + 1);
-      } else if (isDeleting) {
-        timeout = setTimeout(() => {
-          setText(t => t.slice(0, -1));
-        }, 50);
+    if (!isDeleting && text === firstLine[phase]) {
+      if (phase === firstLine.length - 1) {
+        setIsTypingDone(true);
+        timeout = setTimeout(() => setShowSecondLine(true), 1000);
       } else {
-        timeout = setTimeout(() => {
-          setText(firstLine[phase].slice(0, text.length + 1));
-        }, 70);
+        timeout = setTimeout(() => setIsDeleting(true), 1000);
       }
-    } else if (phase === firstLine.length - 1) {
-      if (text !== firstLine[phase]) {
-        timeout = setTimeout(() => {
-          setText(firstLine[phase].slice(0, text.length + 1));
-        }, 70);
-      } else if (!showSecondLine) {
-        timeout = setTimeout(() => {
-          setShowSecondLine(true);
-        }, 500);
-      }
+    } else if (isDeleting && text === 'Hi, I\'m ') {
+      setIsDeleting(false);
+      setPhase(p => p + 1);
+    } else if (isDeleting) {
+      timeout = setTimeout(() => {
+        setText(t => t.slice(0, -1));
+      }, 50);
+    } else {
+      timeout = setTimeout(() => {
+        setText(firstLine[phase].slice(0, text.length + 1));
+      }, 70);
     }
 
     return () => clearTimeout(timeout);
-  }, [text, phase, isDeleting, showSecondLine, shouldAnimate]);
+  }, [text, phase, isDeleting, shouldAnimate]);
 
   useEffect(() => {
     if (!showSecondLine || !shouldAnimate) return;
@@ -77,49 +65,28 @@ export default function TypewriterSequence() {
     const currentPhase = secondLine[secondPhase];
     const fullText = currentPhase.prefix + currentPhase.text;
 
-    if (secondPhase < secondLine.length - 1) {
-      if (!isDeleting && secondLineText === fullText) {
-        timeout = setTimeout(() => setIsDeleting(true), 1000);
-      } else if (isDeleting && secondLineText === currentPhase.prefix) {
-        setIsDeleting(false);
-        setSecondPhase(p => p + 1);
-      } else if (isDeleting) {
-        timeout = setTimeout(() => {
-          setSecondLineText(t => t.slice(0, -1));
-        }, 50);
-      } else {
-        timeout = setTimeout(() => {
-          setSecondLineText(fullText.slice(0, secondLineText.length + 1));
-        }, 70);
-      }
-    } else {
-      if (secondLineText !== fullText) {
-        timeout = setTimeout(() => {
-          setSecondLineText(fullText.slice(0, secondLineText.length + 1));
-        }, 70);
-      }
+    if (secondLineText !== fullText) {
+      timeout = setTimeout(() => {
+        setSecondLineText(fullText.slice(0, secondLineText.length + 1));
+      }, 70);
     }
 
     return () => clearTimeout(timeout);
-  }, [secondLineText, secondPhase, isDeleting, showSecondLine, shouldAnimate]);
+  }, [secondLineText, secondPhase, showSecondLine, shouldAnimate]);
 
-  const Cursor = () => (
-    <style jsx>{`
-      @keyframes blink {
-        0%, 49% { content: '_'; }
-        50%, 100% { content: '\\u00A0'; }  /* Unicode no-break space */
-      }
-      .cursor {
-        display: inline-block;
-        margin-left: 2px;
-        font-weight: bold;
-      }
-      .cursor::after {
-        content: '_';
-        animation: blink 1s step-end infinite;
-      }
-    `}</style>
-  );
+  const handleNameHover = () => {
+    if (isTypingDone) {
+      setIsHovering(true);
+      setDisplayName('@sudoredj');
+    }
+  };
+
+  const handleNameLeave = () => {
+    if (isTypingDone) {
+      setIsHovering(false);
+      setDisplayName('Jared M.');
+    }
+  };
 
   return (
     <div style={{ 
@@ -132,12 +99,37 @@ export default function TypewriterSequence() {
       alignItems: 'center',
       gap: '0.5rem'
     }}>
-      <Cursor />
       <div style={{
         fontSize: '2rem',
         marginBottom: '0.5rem',
       }}>
-        {text}
+        {isTypingDone ? (
+          <>
+            <span style={{ color: '#FFFFFF' }}>Hi, I'm </span>
+            <span 
+              onMouseEnter={handleNameHover}
+              onMouseLeave={handleNameLeave}
+              onClick={() => {
+                if (isTypingDone) {
+                  window.open('https://x.com/sudoredj', '_blank', 'noopener,noreferrer');
+                }
+              }}
+              className={styles.animatedLink}
+              style={{ 
+                cursor: isTypingDone ? 'pointer' : 'default',
+                textDecoration: 'none'
+              }}
+            >
+              {displayName.split('').map((letter, i) => (
+                <span key={i} style={{ '--letter-index': i }}>
+                  {letter === ' ' ? '\u00A0' : letter}
+                </span>
+              ))}
+            </span>
+          </>
+        ) : (
+          <>{text}</>
+        )}
         {!showSecondLine && <span>{cursorVisible ? '_' : '\u00A0'}</span>}
       </div>
       

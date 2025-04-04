@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Stars from '../components/Stars';
@@ -7,6 +7,7 @@ import CustomCursor from "../components/CustomCursor";
 import Toggler from "../components/toggler";
 import AnimatedLink from '../components/AnimatedLink';
 import TypewriterSequence from '../components/TypewriterSequence';
+import styles from '../styles/animations.module.css';
 
 
 export default function Home() {
@@ -83,6 +84,18 @@ export default function Home() {
     event.currentTarget.style.transform = `rotate(${newRotation}deg)`;
   };
 
+  const AnimatedText = ({ text }) => {
+    return (
+      <span className={styles.animatedLink} style={{ textDecoration: 'underline' }}>
+        {text.split('').map((letter, i) => (
+          <span key={i} style={{ '--letter-index': i }}>
+            {letter === ' ' ? '\u00A0' : letter}
+          </span>
+        ))}
+      </span>
+    );
+  };
+
   return (
     <div className="page-wrapper">
       <Stars />
@@ -114,9 +127,10 @@ export default function Home() {
             <div className="screw right"></div>
             <div style={{ 
               display: 'flex', 
-              justifyContent: 'space-around', 
+              justifyContent: 'space-between', 
               alignItems: 'flex-start',
-              padding: '20px'
+              padding: '20px',
+              position: 'relative'
             }}>
               <div style={{ 
                 display: 'flex', 
@@ -127,31 +141,28 @@ export default function Home() {
                 <div style={{ marginBottom: '20px' }}>
                   <Link href="/globevid">
                     <p style={{ color: '#FFFFFF', textDecoration: 'underline', fontSize: '20px' }}>
-                      My story so far
+                      <AnimatedText text="My story so far" />
                     </p>
                   </Link>
                 </div>
                 <Link href="/contact">
                   <p style={{ color: '#FFFFFF', textDecoration: 'underline', fontSize: '20px', marginBottom: '20px' }}>
-                    Contact
+                    <AnimatedText text="Contact" />
                   </p>
                 </Link>
                 <Link href="/aiart">
                   <p style={{ color: '#FFFFFF', textDecoration: 'underline', fontSize: '20px', marginBottom: '20px' }}>
-                    View my art
+                    <AnimatedText text="View my art" />
                   </p>
                 </Link>
                 <Link href="/project-page">
                   <p style={{ color: '#FFFFFF', textDecoration: 'underline', fontSize: '20px', marginBottom: '20px' }}>
-                    Project Page
+                    <AnimatedText text="Project Page" />
                   </p>
                 </Link>
                 <div style={{ display: 'flex', alignItems: 'center' }}>
                   <a className="button" href="#" data-toggle="audio" onClick={() => router.push('/blog')}>
                     Blog
-                  </a>
-                  <a href="https://x.com/redj_red" target="_blank" rel="noopener noreferrer">
-                    <img src="/twitter.gif" alt="Twitter" style={{ width: '25%', height: 'auto', marginLeft: '10px' }} />
                   </a>
                 </div>
               </div>
@@ -168,27 +179,48 @@ export default function Home() {
                      target="_blank" 
                      rel="noopener noreferrer" 
                      style={{ color: '#FFFFFF', textDecoration: 'underline', fontSize: '20px' }}>
-                    My music
+                    <AnimatedText text="My music" />
                   </a>
                 </div>
-                <a href="https://www.goodreads.com/user/show/172937649-jared19" target="_blank" rel="noopener noreferrer"
+                <a href="https://www.goodreads.com/user/show/172937649-jared19" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
                    style={{ color: '#FFFFFF', textDecoration: 'underline', fontSize: '20px', display: 'block', marginBottom: '20px' }}>
-                  GoodReads
+                  <AnimatedText text="GoodReads" />
                 </a>
                 <Link href="/YTMusic">
-                  <p style={{ color: '#FFFFFF', textDecoration: 'underline', fontSize: '20px', marginBottom: '20px' }}>
-                    Music Collection Project
-                  </p>
+                  <span style={{ color: '#FFFFFF', textDecoration: 'underline', fontSize: '20px', display: 'block', marginBottom: '20px' }}>
+                    <AnimatedText text="YouTube Music Collection" />
+                  </span>
                 </Link>
-                <a href="https://www.youtube.com/channel/UCUJm8_b7mSzak-pvZv3ykdw" target="_blank" rel="noopener noreferrer"
+                <a href="https://www.youtube.com/channel/UCUJm8_b7mSzak-pvZv3ykdw" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
                    style={{ color: '#FFFFFF', textDecoration: 'underline', fontSize: '20px', display: 'block', marginBottom: '20px' }}>
-                  YouTube Channel
+                  <AnimatedText text="YouTube Channel" />
                 </a>
                 <Link href="/bucketlist">
-                  <p style={{ color: '#FFFFFF', textDecoration: 'underline', fontSize: '20px', marginBottom: '20px' }}>
-                    My Bucket List
-                  </p>
+                  <span style={{ color: '#FFFFFF', textDecoration: 'underline', fontSize: '20px', display: 'block', marginBottom: '20px' }}>
+                    <AnimatedText text="Bucket List" />
+                  </span>
                 </Link>
+              </div>
+
+              <div style={{ 
+                position: 'absolute',
+                right: '20px',
+                bottom: '20px'
+              }}>
+                <a href="https://x.com/sudoredj" target="_blank" rel="noopener noreferrer">
+                  <img src="/twitter.gif" alt="Twitter" style={{ 
+                    width: '60px',  // Increased from 30px
+                    height: 'auto',
+                    transition: 'transform 0.3s ease',
+                    ':hover': {
+                      transform: 'scale(1.1)'
+                    }
+                  }} />
+                </a>
               </div>
             </div>
           </div>

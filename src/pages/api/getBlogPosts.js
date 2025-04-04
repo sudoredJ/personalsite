@@ -25,6 +25,11 @@ export default function handler(req, res) {
       {
         title: 'Lab 4: Conway\'s Game of You',
         link: 'https://0xredj.medium.com/lab-4-conways-game-of-you-b8e0fd11ef45'
+      },
+      {
+        title: "Degrading Safety Alignment via OpenAI's Fine-Tuning API",
+        link: "https://substack.com/home/post/p-160472986",
+        date: "2024-03-25"
       }
     ];
 

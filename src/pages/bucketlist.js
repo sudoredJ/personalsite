@@ -15,6 +15,11 @@ export default function BucketList() {
   };
 
   const bucketListItems = [
+    "New York City",
+    "Chicago",
+    <span style={{ textDecoration: 'line-through' }}>London</span>,
+    <span style={{ textDecoration: 'line-through' }}>Key West, FL</span>,
+    <span style={{ textDecoration: 'line-through' }}>Juneau</span>,
     "Go to Space (preferably moon)",
     "Balkans",
     <a href="https://www.google.com/maps/place/Tacos+Goku/@17.0794584,-96.7037999,3a,75y,90t/data=!3m8!1e2!3m6!1sAF1QipPitgV85tPuGC1umlhQFFC7gUSEIckbkAsSJoyR!2e10!3e12!6shttps:%2F%2Flh5.googleusercontent.com%2Fp%2FAF1QipPitgV85tPuGC1umlhQFFC7gUSEIckbkAsSJoyR%3Dw224-h298-k-no!7i3024!8i4032!4m13!1m2!2m1!1stacos+goku!3m9!1s0x85c7222be838aae7:0x112cd2e51a7ed16c!8m2!3d17.0794584!4d-96.7037999!10e5!14m1!1BCgIYIQ!15sCgp0YWNvcyBnb2t1WgwiCnRhY29zIGdva3WSAQ90YWNvX3Jlc3RhdXJhbnTgAQA!16s%2Fg%2F11cnb6y20j?entry=ttu" target="_blank">Taqueria Goku</a>,
@@ -36,11 +41,9 @@ export default function BucketList() {
     "Skydive",
     "Midway Atoll",
     "Bailong Elevator",
-    "New York City",
-    "Chicago",
     "Berlin",
     "Tallinn",
-    "Sailing Across the Atlantic",
+    "Solo Sail Across the Atlantic",
     "Dine at a 3 Michelin Star Restaurant",
     "Learn a Third Language",
     "Witness an Active Volcano"

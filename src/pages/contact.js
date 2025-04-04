@@ -9,10 +9,18 @@ export default function LinkedIn() {
     textAlign: 'center',
   };
 
+  const emailStyle = {
+    fontSize: '2rem',
+    margin: '1rem auto',
+    color: '#FFFFFF',
+    textAlign: 'center',
+    fontFamily: 'monospace'
+  };
+
   return (
     <>
       <Head>
-        <title>LinkedIn</title>
+        <title>Contact</title>
       </Head>
       <div
         style={{
@@ -32,6 +40,9 @@ export default function LinkedIn() {
         >
           Visit LinkedIn
         </a>
+        <span style={emailStyle}>
+          jaredm [at] berkeley.edu
+        </span>
         <a href="/" style={linkStyle}>Back to Home</a>
       </div>
     </>

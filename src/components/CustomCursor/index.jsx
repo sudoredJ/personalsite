@@ -76,7 +76,7 @@ const CustomCursor = () => {
       const yc = 0.5 * (trail.current[i].y + trail.current[i + 1].y) - window.scrollY;
   
       const progress = i / (trail.current.length - 1);
-      gradient.addColorStop(progress, `rgba(${255 * progress}, ${255 * (1 - progress)}, ${128 * progress +127}, 0.99)`);
+      gradient.addColorStop(progress, `rgba(255, ${255 * (1 - progress)}, 0, 0.99)`);
       ctx.strokeStyle = gradient;
       ctx.lineWidth = params.widthFactor * (params.pointsNumber - i) + 4;
       ctx.quadraticCurveTo(trail.current[i].x - window.scrollX, trail.current[i].y - window.scrollY, xc, yc);

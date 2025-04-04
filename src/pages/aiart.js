@@ -92,6 +92,15 @@ export default function Art_Showcase() {
           <img src="https://s11.gifyu.com/images/SgVhM.gif" alt="Artwork of St. Louis" style={{width: '200px', marginTop: '2rem'}} />
           <img src="/00276-3611803204.png" alt="Artwork from public folder" style={{width: '200px', marginTop: '2rem'}} />
         </div>
+        <div style={{ 
+          color: '#FFFFFF', 
+          fontSize: '16px', 
+          marginBottom: '20px',
+          textAlign: 'center',
+          fontStyle: 'italic'
+        }}>
+          AI art generated Spring 2023 via Stable Diffusion
+        </div>
         <Modal open={open} onClose={onCloseModal} center styles={{ modal: { maxWidth: '30%', maxHeight: '70%' } }}>
   <Carousel>
     {images.filter(src => src.includes('00')).map((src, index) => (

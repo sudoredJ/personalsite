@@ -1,0 +1,36 @@
+@keyframes letterBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes radialRedSpread {
+  0% {
+    color: #ffffff;
+    text-shadow: none;
+  }
+  100% {
+    color: #ff0000;
+    text-shadow: 0 0 8px rgba(255, 0, 0, 0.3);
+  }
+}
+
+.animated-link {
+  position: relative;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.animated-link:hover {
+  animation: radialRedSpread 0.3s forwards;
+}
+
+.animated-link:hover span {
+  display: inline-block;
+  animation: letterBounce 0.3s ease infinite;
+  animation-delay: calc(0.05s * var(--letter-index));
+}

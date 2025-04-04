@@ -7,6 +7,7 @@ export type CursorLookType =
   | "link"
   | "hamburger"
   | "default";
+
 export type CustomCursorType = {
   type: CursorLookType;
   setType: (type: CursorLookType) => void;
