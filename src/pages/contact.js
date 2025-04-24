@@ -40,6 +40,14 @@ export default function LinkedIn() {
         >
           Visit LinkedIn
         </a>
+        <a
+          href="https://github.com/sudoredj"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={linkStyle}
+        >
+          GitHub
+        </a>
         <span style={emailStyle}>
           jaredm [at] berkeley.edu
         </span>

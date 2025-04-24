@@ -141,13 +141,13 @@ export default function Home() {
                 <div style={{ marginBottom: '20px' }}>
                   <Link href="/globevid">
                     <p style={{ color: '#FFFFFF', textDecoration: 'underline', fontSize: '20px' }}>
-                      <AnimatedText text="My story so far" />
+                      <AnimatedText text="My life so far" />
                     </p>
                   </Link>
                 </div>
                 <Link href="/contact">
                   <p style={{ color: '#FFFFFF', textDecoration: 'underline', fontSize: '20px', marginBottom: '20px' }}>
-                    <AnimatedText text="Contact" />
+                    <AnimatedText text="eMail & links" />
                   </p>
                 </Link>
                 <Link href="/aiart">
