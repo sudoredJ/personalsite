@@ -175,7 +175,7 @@ export default function Home() {
                 marginLeft: '20px'
               }}>
                 <div style={{ marginBottom: '20px' }}>
-                  <a href="https://jared19.bandcamp.com/" 
+                  <a href="https://redj.bandcamp.com/" 
                      target="_blank" 
                      rel="noopener noreferrer" 
                      style={{ color: '#FFFFFF', textDecoration: 'underline', fontSize: '20px' }}>
